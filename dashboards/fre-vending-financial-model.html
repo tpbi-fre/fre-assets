@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FRE Vending — Financial Model</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#E40032;--dark:#1a1a1a;--card:#222;--border:#333;--text:#eee;--muted:#999;--green:#22c55e;--amber:#f59e0b;--blue:#3b82f6}
+body{font-family:'Helvetica Neue',system-ui,sans-serif;background:var(--dark);color:var(--text);min-height:100vh}
+.header{background:linear-gradient(135deg,#1a1a1a 0%,#2a1a1a 100%);border-bottom:3px solid var(--red);padding:24px 32px;text-align:center}
+.header h1{font-size:28px;font-weight:800;letter-spacing:-0.5px}
+.header h1 span{color:var(--red)}
+.header p{color:var(--muted);font-size:14px;margin-top:4px}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.card h2{font-size:16px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.card h2 .icon{font-size:20px}
+.input-group{margin-bottom:14px}
+.input-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px;font-weight:500}
+.input-group .hint{font-size:11px;color:#666;margin-top:2px}
+.input-row{display:flex;align-items:center;gap:8px}
+.input-row .prefix,.input-row .suffix{color:var(--muted);font-size:14px;font-weight:600;min-width:18px}
+input[type=number]{background:#1a1a1a;border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:15px;width:100%;font-family:inherit;transition:border-color .2s}
+input[type=number]:focus{outline:none;border-color:var(--red)}
+input[type=number]::-webkit-inner-spin-button{opacity:1}
+.slider-row{display:flex;align-items:center;gap:12px;margin-top:6px}
+.slider-row input[type=range]{flex:1;accent-color:var(--red);height:6px}
+.slider-row .val{font-size:14px;font-weight:600;min-width:50px;text-align:right;color:var(--red)}
+
+/* Results */
+.results{grid-column:1/-1}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+@media(max-width:900px){.results-grid{grid-template-columns:repeat(2,1fr)}}
+.metric{background:#1a1a1a;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.metric .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.metric .value{font-size:28px;font-weight:800;letter-spacing:-0.5px}
+.metric .sub{font-size:12px;color:var(--muted);margin-top:4px}
+.metric.hero{border-color:var(--red);background:linear-gradient(135deg,#1a1a1a,#2a1a1a)}
+.metric.hero .value{color:var(--red)}
+.metric.green .value{color:var(--green)}
+.metric.amber .value{color:var(--amber)}
+.metric.blue .value{color:var(--blue)}
+
+/* Chart */
+.chart-container{background:#1a1a1a;border:1px solid var(--border);border-radius:10px;padding:20px;margin-top:16px}
+.chart-container h3{font-size:14px;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.bar-chart{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-label{font-size:12px;color:var(--muted);min-width:90px;text-align:right}
+.bar-track{flex:1;background:#2a2a2a;border-radius:4px;height:28px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .4s ease;display:flex;align-items:center;padding:0 10px;font-size:12px;font-weight:600;min-width:fit-content}
+.bar-fill.revenue{background:linear-gradient(90deg,var(--green),#16a34a)}
+.bar-fill.cost{background:linear-gradient(90deg,var(--red),#b91c1c)}
+.bar-fill.profit{background:linear-gradient(90deg,var(--blue),#2563eb)}
+.bar-amount{font-size:12px;font-weight:600;margin-left:8px;color:var(--muted)}
+
+/* Scenario */
+.scenarios{grid-column:1/-1;margin-top:4px}
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.scenario-grid{grid-template-columns:1fr}}
+.scenario{background:#1a1a1a;border:1px solid var(--border);border-radius:10px;padding:16px}
+.scenario h3{font-size:14px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.scenario .s-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;border-bottom:1px solid #2a2a2a}
+.scenario .s-row:last-child{border:none}
+.scenario .s-row .s-label{color:var(--muted)}
+.scenario .s-row .s-val{font-weight:600}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600}
+.tag.good{background:#22c55e22;color:var(--green)}
+.tag.ok{background:#f59e0b22;color:var(--amber)}
+.tag.bad{background:#E4003222;color:var(--red)}
+
+/* Sensitivity */
+.sensitivity{grid-column:1/-1}
+.sens-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+.sens-table th{background:#1a1a1a;padding:8px 12px;text-align:center;color:var(--muted);font-weight:600;border:1px solid var(--border)}
+.sens-table td{padding:8px 12px;text-align:center;border:1px solid var(--border)}
+.sens-table .header-cell{background:var(--card);color:var(--text);font-weight:600}
+.sens-table .highlight{background:#E4003215;font-weight:700}
+
+footer{text-align:center;padding:24px;color:#555;font-size:12px;border-top:1px solid var(--border);margin-top:24px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span>FRE</span> Vending — Financial Model</h1>
+  <p>LA Pilot | Payback & Unit Economics Calculator</p>
+</div>
+
+<div class="container">
+<div class="grid">
+
+  <!-- MACHINE ECONOMICS -->
+  <div class="card">
+    <h2><span class="icon">🏗️</span> Machine Economics</h2>
+    <div class="input-group">
+      <label>Machine Cost (all-in)</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="machineCost" value="4713" step="100" min="0"></div>
+      <div class="hint">VapeTM Slim Wall $3,500 + ID scanner $300 + wrap $175 + tax $388 + ship $350</div>
+    </div>
+    <div class="input-group">
+      <label>Brand Wrap / Signage</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="wrapCost" value="0" step="50" min="0"></div>
+    </div>
+    <div class="input-group">
+      <label>Monthly Connectivity (cell + payment processing platform)</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="monthlyConn" value="8" step="5" min="0"><span class="suffix">/mo</span></div>
+    </div>
+    <div class="input-group">
+      <label>Payment Processing Fee</label>
+      <div class="slider-row">
+        <input type="range" id="processingFee" min="0" max="10" step="0.5" value="3.5">
+        <span class="val" id="processingFeeVal">3.5%</span>
+      </div>
+    </div>
+    <div class="input-group">
+      <label>Monthly Maintenance Reserve</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="monthlyMaint" value="25" step="5" min="0"><span class="suffix">/mo</span></div>
+      <div class="hint">Jams, parts, screen repairs — budget avg</div>
+    </div>
+  </div>
+
+  <!-- TRAFFIC & CONVERSION -->
+  <div class="card">
+    <h2><span class="icon">🚶</span> Traffic & Conversion</h2>
+    <div class="input-group">
+      <label>Daily Foot Traffic (people passing machine)</label>
+      <div class="input-row"><input type="number" id="dailyTraffic" value="500" step="50" min="0"><span class="suffix">people/day</span></div>
+      <div class="hint">High-traffic LA bar: 300-800+ on a busy night</div>
+    </div>
+    <div class="input-group">
+      <label>Conversion Rate</label>
+      <div class="slider-row">
+        <input type="range" id="convRate" min="0.5" max="10" step="0.25" value="2">
+        <span class="val" id="convRateVal">2.0%</span>
+      </div>
+      <div class="hint">% of foot traffic that makes a purchase. Vending avg: 1-3%</div>
+    </div>
+    <div class="input-group">
+      <label>Operating Days Per Week</label>
+      <div class="slider-row">
+        <input type="range" id="daysPerWeek" min="1" max="7" step="1" value="7">
+        <span class="val" id="daysPerWeekVal">7</span>
+      </div>
+      <div class="hint">Machine is on 24/7 but traffic varies by day. Bar may be closed some days.</div>
+    </div>
+  </div>
+
+  <!-- PRODUCT & PRICING -->
+  <div class="card">
+    <h2><span class="icon">💰</span> Product & Pricing</h2>
+    <div class="input-group">
+      <label>Average Selling Price (per transaction)</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="avgPrice" value="6.50" step="0.25" min="0"></div>
+      <div class="hint">Single tin. Premium over c-store ($4.99-5.99) for convenience.</div>
+    </div>
+    <div class="input-group">
+      <label>COGS Per Unit (product cost to TPB)</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="cogs" value="2.75" step="0.25" min="0"></div>
+      <div class="hint">Internal TPB cost per tin incl. packaging</div>
+    </div>
+    <div class="input-group">
+      <label>Average Units Per Transaction</label>
+      <div class="slider-row">
+        <input type="range" id="unitsPerTx" min="1" max="3" step="0.1" value="1">
+        <span class="val" id="unitsPerTxVal">1.0</span>
+      </div>
+    </div>
+    <div class="input-group">
+      <label>Spoilage / Shrinkage</label>
+      <div class="slider-row">
+        <input type="range" id="shrinkage" min="0" max="10" step="0.5" value="2">
+        <span class="val" id="shrinkageVal">2.0%</span>
+      </div>
+      <div class="hint">Pouches have long shelf life — mostly theft/damage</div>
+    </div>
+  </div>
+
+  <!-- OPERATIONS -->
+  <div class="card">
+    <h2><span class="icon">⚙️</span> Operations</h2>
+    <div class="input-group">
+      <label>Restocking Labor (per visit)</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="restockCost" value="50" step="10" min="0"></div>
+      <div class="hint">Drive time + 30 min on-site. Alex as "Fed Rep" during pilot.</div>
+    </div>
+    <div class="input-group">
+      <label>Restocks Per Month</label>
+      <div class="slider-row">
+        <input type="range" id="restocksPerMonth" min="1" max="8" step="1" value="4">
+        <span class="val" id="restocksPerMonthVal">4</span>
+      </div>
+      <div class="hint">Unknown pre-pilot — weekly is the baseline assumption</div>
+    </div>
+    <div class="input-group">
+      <label>Revenue Share to Bar Owner</label>
+      <div class="slider-row">
+        <input type="range" id="revShare" min="0" max="30" step="1" value="10">
+        <span class="val" id="revShareVal">10%</span>
+      </div>
+      <div class="hint">Pilot: 0-15%. Scale: 15-25%. Lease-to-own: 60-80%.</div>
+    </div>
+    <div class="input-group">
+      <label>Monthly Insurance / Liability</label>
+      <div class="input-row"><span class="prefix">$</span><input type="number" id="insurance" value="0" step="10" min="0"><span class="suffix">/mo</span></div>
+      <div class="hint">May be covered under TPB commercial policy. $0 for now.</div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="card results">
+    <h2><span class="icon">📊</span> Unit Economics — Per Machine</h2>
+    <div class="results-grid">
+      <div class="metric hero">
+        <div class="label">Payback Period</div>
+        <div class="value" id="payback">—</div>
+        <div class="sub" id="paybackSub"></div>
+      </div>
+      <div class="metric green">
+        <div class="label">Monthly Net Profit</div>
+        <div class="value" id="monthlyProfit">—</div>
+        <div class="sub" id="monthlyProfitSub"></div>
+      </div>
+      <div class="metric blue">
+        <div class="label">Monthly Revenue</div>
+        <div class="value" id="monthlyRev">—</div>
+        <div class="sub" id="monthlyRevSub"></div>
+      </div>
+      <div class="metric amber">
+        <div class="label">Daily Transactions</div>
+        <div class="value" id="dailyTx">—</div>
+        <div class="sub" id="dailyTxSub"></div>
+      </div>
+    </div>
+
+    <div class="results-grid">
+      <div class="metric">
+        <div class="label">Gross Margin</div>
+        <div class="value" id="grossMargin">—</div>
+      </div>
+      <div class="metric">
+        <div class="label">Net Margin</div>
+        <div class="value" id="netMargin">—</div>
+      </div>
+      <div class="metric">
+        <div class="label">Annual Net Profit</div>
+        <div class="value" id="annualProfit">—</div>
+      </div>
+      <div class="metric">
+        <div class="label">Annual ROI</div>
+        <div class="value" id="annualROI">—</div>
+      </div>
+    </div>
+
+    <!-- Waterfall -->
+    <div class="chart-container">
+      <h3>Monthly P&L Waterfall</h3>
+      <div class="bar-chart" id="waterfall"></div>
+    </div>
+  </div>
+
+  <!-- FLEET SCALE EXPLORER -->
+  <div class="card scenarios">
+    <h2><span class="icon">🚀</span> Fleet Scale Explorer — Economies of Scale</h2>
+    <div class="input-group">
+      <label>Fleet Size</label>
+      <div class="slider-row">
+        <input type="range" id="fleetSize" min="1" max="500" step="1" value="50">
+        <span class="val" id="fleetSizeVal" style="min-width:70px">50 units</span>
+      </div>
+    </div>
+    <div class="results-grid" style="margin-top:16px">
+      <div class="metric hero"><div class="label">Net Margin / Machine</div><div class="value" id="scaleNetPerMachine">—</div><div class="sub" id="scaleNetPerMachineSub"></div></div>
+      <div class="metric green"><div class="label">Annual Fleet Profit</div><div class="value" id="scaleAnnualFleet">—</div><div class="sub" id="scaleAnnualFleetSub"></div></div>
+      <div class="metric blue"><div class="label">Total Investment</div><div class="value" id="scaleTotalInvest">—</div><div class="sub" id="scaleTotalInvestSub"></div></div>
+      <div class="metric amber"><div class="label">Fleet Payback</div><div class="value" id="scalePayback">—</div><div class="sub" id="scalePaybackSub"></div></div>
+    </div>
+
+    <!-- Scale cost breakdown table -->
+    <div class="chart-container" style="margin-top:16px">
+      <h3>Per-Machine Cost Comparison: 1 Unit vs Fleet</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:13px" id="scaleCostTable"></table>
+    </div>
+
+    <!-- Fleet overhead -->
+    <div class="chart-container" style="margin-top:16px">
+      <h3>Fleet Overhead (costs that appear at scale)</h3>
+      <div id="fleetOverhead"></div>
+    </div>
+  </div>
+
+  <!-- SCALE CURVE -->
+  <div class="card scenarios">
+    <h2><span class="icon">📈</span> Scale Curve — Profit Per Machine by Fleet Size</h2>
+    <div style="overflow-x:auto">
+      <table class="sens-table" id="scaleCurve"></table>
+    </div>
+    <p style="font-size:11px;color:#666;margin-top:10px">Shows how per-machine monthly net profit changes as fleet grows. Green = improving vs single unit. Overhead (reps, warehouse, software, admin) is allocated per-machine.</p>
+  </div>
+
+  <!-- SENSITIVITY TABLE -->
+  <div class="card sensitivity">
+    <h2><span class="icon">🎛️</span> Sensitivity — Payback by Traffic × Conversion</h2>
+    <table class="sens-table" id="sensTable"></table>
+  </div>
+
+</div>
+</div>
+
+<footer>FRE Vending Financial Model v1 — Vera ⚡ | April 2026 | All inputs adjustable — numbers update in real time</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => n < 0 ? '-$' + Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : '$' + n.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+const pct = n => n.toFixed(1) + '%';
+
+// Sliders
+const sliders = [
+  ['processingFee','processingFeeVal','%'],
+  ['convRate','convRateVal','%'],
+  ['daysPerWeek','daysPerWeekVal',''],
+  ['unitsPerTx','unitsPerTxVal',''],
+  ['shrinkage','shrinkageVal','%'],
+  ['restocksPerMonth','restocksPerMonthVal',''],
+  ['revShare','revShareVal','%'],
+];
+sliders.forEach(([id,valId,suf])=>{
+  const el = $(id);
+  el.addEventListener('input',()=>{
+    $(valId).textContent = parseFloat(el.value).toFixed(suf==='%'?1:(['unitsPerTx'].includes(id)?1:0)) + (suf||'');
+    calc();
+  });
+});
+
+// All number inputs
+document.querySelectorAll('input[type=number]').forEach(el=>{
+  el.addEventListener('input', calc);
+});
+
+function calc(){
+  const machineCost = parseFloat($('machineCost').value)||0;
+  const wrapCost = parseFloat($('wrapCost').value)||0;
+  const monthlyConn = parseFloat($('monthlyConn').value)||0;
+  const processingFee = parseFloat($('processingFee').value)/100;
+  const monthlyMaint = parseFloat($('monthlyMaint').value)||0;
+  const dailyTraffic = parseFloat($('dailyTraffic').value)||0;
+  const convRate = parseFloat($('convRate').value)/100;
+  const daysPerWeek = parseFloat($('daysPerWeek').value)||7;
+  const avgPrice = parseFloat($('avgPrice').value)||0;
+  const cogs = parseFloat($('cogs').value)||0;
+  const unitsPerTx = parseFloat($('unitsPerTx').value)||1;
+  const shrinkage = parseFloat($('shrinkage').value)/100;
+  const restockCost = parseFloat($('restockCost').value)||0;
+  const restocksPerMonth = parseFloat($('restocksPerMonth').value)||0;
+  const revShare = parseFloat($('revShare').value)/100;
+  const insurance = parseFloat($('insurance').value)||0;
+
+  const totalInvestment = machineCost + wrapCost;
+  const daysPerMonth = daysPerWeek / 7 * 30.4;
+  const dailyTx = dailyTraffic * convRate;
+  const monthlyTx = dailyTx * daysPerMonth;
+  const monthlyUnits = monthlyTx * unitsPerTx;
+  const monthlyGrossRev = monthlyTx * avgPrice * unitsPerTx;
+
+  // Costs
+  const productCost = monthlyUnits * cogs * (1 + shrinkage);
+  const nayaxPerTx = 0.20;
+  const paymentFees = (monthlyGrossRev * processingFee) + (monthlyTx * nayaxPerTx);
+  const barOwnerShare = monthlyGrossRev * revShare;
+  const restockTotal = restockCost * restocksPerMonth;
+  const totalMonthlyCost = productCost + paymentFees + barOwnerShare + restockTotal + monthlyConn + monthlyMaint + insurance;
+
+  const monthlyNetProfit = monthlyGrossRev - totalMonthlyCost;
+  const grossMarginPct = monthlyGrossRev > 0 ? ((monthlyGrossRev - productCost) / monthlyGrossRev * 100) : 0;
+  const netMarginPct = monthlyGrossRev > 0 ? (monthlyNetProfit / monthlyGrossRev * 100) : 0;
+  const paybackMonths = monthlyNetProfit > 0 ? totalInvestment / monthlyNetProfit : Infinity;
+  const annualNet = monthlyNetProfit * 12;
+  const annualROI = totalInvestment > 0 ? (annualNet / totalInvestment * 100) : 0;
+
+  // Display
+  if(paybackMonths === Infinity || paybackMonths < 0){
+    $('payback').textContent = '∞';
+    $('paybackSub').textContent = 'Not profitable at current inputs';
+  } else {
+    $('payback').textContent = paybackMonths.toFixed(1) + ' mo';
+    const tag = paybackMonths <= 3 ? 'good' : paybackMonths <= 6 ? 'ok' : 'bad';
+    const label = paybackMonths <= 3 ? 'Excellent' : paybackMonths <= 6 ? 'Solid' : paybackMonths <= 12 ? 'Marginal' : 'Challenging';
+    $('paybackSub').innerHTML = `<span class="tag ${tag}">${label}</span> on ${fmt(totalInvestment)} investment`;
+  }
+
+  $('monthlyProfit').textContent = fmt(Math.round(monthlyNetProfit));
+  $('monthlyProfitSub').textContent = monthlyNetProfit >= 0 ? 'after all costs' : '⚠️ losing money';
+  $('monthlyRev').textContent = fmt(Math.round(monthlyGrossRev));
+  $('monthlyRevSub').textContent = Math.round(monthlyTx) + ' transactions/mo';
+  $('dailyTx').textContent = dailyTx.toFixed(1);
+  $('dailyTxSub').textContent = (dailyTx * unitsPerTx).toFixed(1) + ' units/day';
+  $('grossMargin').textContent = pct(grossMarginPct);
+  $('netMargin').textContent = pct(netMarginPct);
+  $('annualProfit').textContent = fmt(Math.round(annualNet));
+  $('annualROI').textContent = pct(annualROI);
+
+  // Waterfall
+  const maxVal = Math.max(monthlyGrossRev, totalMonthlyCost, Math.abs(monthlyNetProfit)) || 1;
+  const rows = [
+    ['Revenue', monthlyGrossRev, 'revenue'],
+    ['Product COGS', -productCost, 'cost'],
+    ['Payment Fees', -paymentFees, 'cost'],
+    ['Bar Owner Share', -barOwnerShare, 'cost'],
+    ['Restocking Labor', -restockTotal, 'cost'],
+    ['Connectivity', -monthlyConn, 'cost'],
+    ['Maintenance', -monthlyMaint, 'cost'],
+    ['Insurance', -insurance, 'cost'],
+    ['Net Profit', monthlyNetProfit, monthlyNetProfit >= 0 ? 'profit' : 'cost'],
+  ];
+  let waterfallHTML = '';
+  rows.forEach(([label, val, cls]) => {
+    const w = Math.abs(val) / maxVal * 100;
+    waterfallHTML += `<div class="bar-row">
+      <div class="bar-label">${label}</div>
+      <div class="bar-track"><div class="bar-fill ${cls}" style="width:${Math.max(w,2)}%">${fmt(Math.round(Math.abs(val)))}</div></div>
+    </div>`;
+  });
+  $('waterfall').innerHTML = waterfallHTML;
+
+  // Fleet scale functions
+  function getScaleFactors(n){
+    // Hardware bulk discount curve (logarithmic)
+    const hwDiscount = n<=1?1: n<=5?0.96: n<=10?0.92: n<=25?0.88: n<=50?0.85: n<=100?0.80: n<=200?0.76: 0.72;
+    // COGS volume pricing
+    const cogsDiscount = n<=1?1: n<=10?0.97: n<=25?0.94: n<=50?0.92: n<=100?0.89: n<=200?0.86: 0.84;
+    // Restocking efficiency (route density)
+    const restockMult = n<=1?1: n<=5?0.85: n<=10?0.70: n<=25?0.55: n<=50?0.45: n<=100?0.38: 0.32;
+    // Connectivity fleet rate
+    const connMult = n<=1?1: n<=10?0.88: n<=50?0.69: n<=100?0.56: 0.50;
+    // Payment processing (negotiate at volume)
+    const pmtFeeMult = n<=1?1: n<=50?1: n<=100?0.86: 0.71;
+    // Wrap/signage bulk print
+    const wrapMult = n<=1?1: n<=10?0.86: n<=50?0.57: 0.43;
+    return {hwDiscount, cogsDiscount, restockMult, connMult, pmtFeeMult, wrapMult};
+  }
+  function getFleetOverhead(n){
+    const reps = n<=2?0: Math.ceil(n/25);
+    const repCost = reps * 4500;
+    const warehouse = n<25?0: n<100?1500: n<200?3000: 5000;
+    const software = n<10?0: n<50?500: n<200?1500: 3000;
+    const admin = n<50?0: n<200?2000: 5000;
+    const insuranceFleet = n<10?0: n<50?300: n<200?500: 1000;
+    return {reps, repCost, warehouse, software, admin, insuranceFleet, 
+            total: repCost+warehouse+software+admin+insuranceFleet};
+  }
+
+  // Fleet slider
+  const fleetSlider = $('fleetSize');
+  fleetSlider.addEventListener('input',()=>{
+    $('fleetSizeVal').textContent = fleetSlider.value + ' units';
+    calc();
+  });
+
+  // Scale explorer
+  const n = parseInt(fleetSlider.value)||50;
+  const sf = getScaleFactors(n);
+  const sf1 = getScaleFactors(1);
+  const oh = getFleetOverhead(n);
+  
+  const scaleMachineCost = machineCost * sf.hwDiscount;
+  const scaleWrapCost = wrapCost > 0 ? wrapCost * sf.wrapMult : 0;
+  const scaleCogs = cogs * sf.cogsDiscount;
+  const scaleRestockCost = restockCost * sf.restockMult;
+  const scaleConn = monthlyConn * sf.connMult;
+  const scaleProcessingPct = processingFee * sf.pmtFeeMult;
+  const scaleNayaxTx = nayaxPerTx * sf.pmtFeeMult;
+
+  // Per-machine monthly at scale
+  const scaleProductCost = monthlyUnits * scaleCogs * (1+shrinkage);
+  const scalePaymentFees = (monthlyGrossRev * scaleProcessingPct) + (monthlyTx * scaleNayaxTx);
+  const scaleBarShare = monthlyGrossRev * revShare;
+  const scaleRestockTotal = scaleRestockCost * restocksPerMonth;
+  const scalePerMachineCosts = scaleProductCost + scalePaymentFees + scaleBarShare + scaleRestockTotal + scaleConn + monthlyMaint;
+  const scalePerMachineProfit = monthlyGrossRev - scalePerMachineCosts;
+  const fleetGrossMonthly = scalePerMachineProfit * n;
+  const fleetNetMonthly = fleetGrossMonthly - oh.total;
+  const fleetNetPerMachine = fleetNetMonthly / n;
+  const totalFleetInvestment = (scaleMachineCost + scaleWrapCost) * n;
+  const fleetPaybackMo = fleetNetMonthly > 0 ? totalFleetInvestment / fleetNetMonthly : Infinity;
+  const fleetAnnualNet = fleetNetMonthly * 12;
+  const singleDelta = fleetNetPerMachine - monthlyNetProfit;
+
+  // Display
+  $('scaleNetPerMachine').textContent = fmt(Math.round(fleetNetPerMachine));
+  $('scaleNetPerMachineSub').innerHTML = singleDelta >= 0 
+    ? `<span class="tag good">+${fmt(Math.round(singleDelta))}/mo vs single</span>`
+    : `<span class="tag bad">${fmt(Math.round(singleDelta))}/mo vs single</span>`;
+  $('scaleAnnualFleet').textContent = fmt(Math.round(fleetAnnualNet));
+  $('scaleAnnualFleetSub').textContent = `${n} machines × 12 months`;
+  $('scaleTotalInvest').textContent = fmt(Math.round(totalFleetInvestment));
+  $('scaleTotalInvestSub').textContent = `${fmt(Math.round(scaleMachineCost))}/machine (${Math.round((1-sf.hwDiscount)*100)}% off)`;
+  if(fleetPaybackMo===Infinity||fleetPaybackMo<0){
+    $('scalePayback').textContent='∞';
+    $('scalePaybackSub').textContent='Not profitable';
+  }else{
+    $('scalePayback').textContent=fleetPaybackMo.toFixed(1)+' mo';
+    const ptag = fleetPaybackMo<=3?'good':fleetPaybackMo<=6?'ok':'bad';
+    $('scalePaybackSub').innerHTML=`<span class="tag ${ptag}">${fleetPaybackMo<=3?'Excellent':fleetPaybackMo<=6?'Solid':'Marginal'}</span>`;
+  }
+
+  // Cost comparison table
+  const costRows = [
+    ['Hardware/unit', machineCost, scaleMachineCost],
+    ['COGS/unit', cogs, scaleCogs],
+    ['Restock/visit', restockCost, scaleRestockCost],
+    ['Connectivity/mo', monthlyConn, scaleConn],
+    ['Processing %', processingFee*100, scaleProcessingPct*100, true],
+  ];
+  let ctHtml = '<tr><th style="text-align:left;padding:8px;color:#999;border:1px solid #333">Cost Line</th><th style="padding:8px;color:#999;border:1px solid #333">1 Machine</th><th style="padding:8px;color:#999;border:1px solid #333">'+n+' Machines</th><th style="padding:8px;color:#999;border:1px solid #333">Savings</th></tr>';
+  costRows.forEach(([label, v1, vn, isPct])=>{
+    const savings = v1>0?Math.round((1-vn/v1)*100):0;
+    ctHtml+=`<tr><td style="padding:6px 8px;border:1px solid #2a2a2a;color:#ccc">${label}</td>
+      <td style="text-align:center;padding:6px;border:1px solid #2a2a2a">${isPct?v1.toFixed(1)+'%':fmt(Math.round(v1))}</td>
+      <td style="text-align:center;padding:6px;border:1px solid #2a2a2a;font-weight:700">${isPct?vn.toFixed(1)+'%':fmt(Math.round(vn))}</td>
+      <td style="text-align:center;padding:6px;border:1px solid #2a2a2a"><span class="tag ${savings>0?'good':'ok'}">${savings>0?'-'+savings+'%':'—'}</span></td></tr>`;
+  });
+  $('scaleCostTable').innerHTML=ctHtml;
+
+  // Fleet overhead
+  let ohHtml='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">';
+  const ohItems=[
+    ['Field Reps',oh.reps+' × $4,500/mo',oh.repCost, oh.reps>0],
+    ['Warehouse',oh.warehouse>0?'Staging/inventory':'Not needed',oh.warehouse, oh.warehouse>0],
+    ['Fleet Software',oh.software>0?'Mgmt platform':'Not needed',oh.software, oh.software>0],
+    ['Admin/Bookkeeping',oh.admin>0?'Part-time':'Not needed',oh.admin, oh.admin>0],
+    ['Fleet Insurance',oh.insuranceFleet>0?'Commercial policy':'Not needed',oh.insuranceFleet, oh.insuranceFleet>0],
+  ];
+  ohItems.forEach(([label,desc,cost,active])=>{
+    ohHtml+=`<div style="background:#222;border:1px solid ${active?'#E4003244':'#2a2a2a'};border-radius:8px;padding:10px">
+      <div style="font-size:12px;color:#999">${label}</div>
+      <div style="font-size:18px;font-weight:700;margin:4px 0;color:${active?'var(--text)':'#555'}">${active?fmt(cost)+'/mo':'$0'}</div>
+      <div style="font-size:11px;color:#666">${desc}</div>
+    </div>`;
+  });
+  ohHtml+=`<div style="background:#1a1a1a;border:2px solid var(--red);border-radius:8px;padding:10px">
+    <div style="font-size:12px;color:#999">Total Overhead</div>
+    <div style="font-size:18px;font-weight:700;margin:4px 0;color:var(--red)">${fmt(oh.total)}/mo</div>
+    <div style="font-size:11px;color:#666">${fmt(Math.round(oh.total/Math.max(n,1)))}/machine allocated</div>
+  </div></div>`;
+  $('fleetOverhead').innerHTML=ohHtml;
+
+  // Scale curve table
+  const milestones = [1,5,10,25,50,100,200,500];
+  let scHtml='<tr><th class="header-cell">Fleet Size</th>';
+  milestones.forEach(m=>scHtml+=`<th style="padding:8px;border:1px solid #333;${m===n?'background:#E4003222;color:var(--red)':''}">${m}</th>`);
+  scHtml+='</tr>';
+  // Row 1: Hardware/unit
+  scHtml+='<tr><td class="header-cell">Hardware/unit</td>';
+  milestones.forEach(m=>{const s=getScaleFactors(m);scHtml+=`<td style="text-align:center;padding:6px;border:1px solid #2a2a2a;${m===n?'background:#E4003215':''}">${fmt(Math.round(machineCost*s.hwDiscount))}</td>`;});
+  scHtml+='</tr>';
+  // Row 2: Overhead/machine
+  scHtml+='<tr><td class="header-cell">Overhead/machine/mo</td>';
+  milestones.forEach(m=>{const o=getFleetOverhead(m);scHtml+=`<td style="text-align:center;padding:6px;border:1px solid #2a2a2a;${m===n?'background:#E4003215':''}">${fmt(Math.round(o.total/Math.max(m,1)))}</td>`;});
+  scHtml+='</tr>';
+  // Row 3: Net profit/machine/mo
+  scHtml+='<tr><td class="header-cell" style="font-weight:800">Net/machine/mo</td>';
+  milestones.forEach(m=>{
+    const s=getScaleFactors(m);const o=getFleetOverhead(m);
+    const sCogs=cogs*s.cogsDiscount;const sRestock=restockCost*s.restockMult;const sConn=monthlyConn*s.connMult;
+    const sPmtPct=processingFee*s.pmtFeeMult;const sNayax=nayaxPerTx*s.pmtFeeMult;
+    const sCost=(monthlyUnits*sCogs*(1+shrinkage))+(monthlyGrossRev*sPmtPct)+(monthlyTx*sNayax)+(monthlyGrossRev*revShare)+(sRestock*restocksPerMonth)+sConn+monthlyMaint;
+    const sProfit=monthlyGrossRev-sCost;const netAfterOh=sProfit-(o.total/Math.max(m,1));
+    const cls=netAfterOh>monthlyNetProfit?'good':netAfterOh>0?'ok':'bad';
+    scHtml+=`<td style="text-align:center;padding:6px;border:1px solid #2a2a2a;${m===n?'background:#E4003215':''}"><span class="tag ${cls}">${fmt(Math.round(netAfterOh))}</span></td>`;
+  });
+  scHtml+='</tr>';
+  // Row 4: Annual fleet profit
+  scHtml+='<tr><td class="header-cell">Annual fleet net</td>';
+  milestones.forEach(m=>{
+    const s=getScaleFactors(m);const o=getFleetOverhead(m);
+    const sCogs=cogs*s.cogsDiscount;const sRestock=restockCost*s.restockMult;const sConn=monthlyConn*s.connMult;
+    const sPmtPct=processingFee*s.pmtFeeMult;const sNayax=nayaxPerTx*s.pmtFeeMult;
+    const sCost=(monthlyUnits*sCogs*(1+shrinkage))+(monthlyGrossRev*sPmtPct)+(monthlyTx*sNayax)+(monthlyGrossRev*revShare)+(sRestock*restocksPerMonth)+sConn+monthlyMaint;
+    const sProfit=monthlyGrossRev-sCost;const fleetNet=(sProfit*m-o.total)*12;
+    scHtml+=`<td style="text-align:center;padding:6px;border:1px solid #2a2a2a;${m===n?'background:#E4003215':''}">${fmt(Math.round(fleetNet))}</td>`;
+  });
+  scHtml+='</tr>';
+  $('scaleCurve').innerHTML=scHtml;
+
+  // Sensitivity table
+  const trafficLevels = [200, 300, 500, 750, 1000];
+  const convLevels = [1, 1.5, 2, 3, 5];
+  let html = '<tr><th class="header-cell">Traffic ↓ \\ Conv →</th>';
+  convLevels.forEach(c => html += `<th>${c}%</th>`);
+  html += '</tr>';
+  trafficLevels.forEach(t => {
+    html += `<tr><td class="header-cell">${t}/day</td>`;
+    convLevels.forEach(c => {
+      const tx = t * (c/100) * daysPerMonth;
+      const rev = tx * avgPrice * unitsPerTx;
+      const costs = (tx * unitsPerTx * cogs * (1+shrinkage)) + (rev * processingFee) + (rev * revShare) + restockTotal + monthlyConn + monthlyMaint + insurance;
+      const profit = rev - costs;
+      const pb = profit > 0 ? (totalInvestment / profit) : Infinity;
+      const isCurrentish = Math.abs(t - dailyTraffic) < 100 && Math.abs(c - convRate*100) < 0.5;
+      const cls = pb <= 3 ? 'good' : pb <= 6 ? 'ok' : 'bad';
+      html += `<td class="${isCurrentish?'highlight':''}"><span class="tag ${cls}">${pb === Infinity ? '∞' : pb.toFixed(1) + ' mo'}</span></td>`;
+    });
+    html += '</tr>';
+  });
+  $('sensTable').innerHTML = html;
+}
+
+calc();
+</script>
+</body>
+</html>

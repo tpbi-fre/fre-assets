@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiet Society — Brand One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #1A1210;
+    --chocolate: #3C2415;
+    --cream: #F5F0EB;
+    --warm-cream: #EDE8E2;
+    --accent: #8B6142;
+    --accent-deep: #6B3A3A;
+    --muted: #6B5A4E;
+    --sage: #8B9E87;
+    --gold: #B89B5A;
+    --rose: #C4A0A0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--chocolate);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .heading { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(139,97,66,0.15), transparent 60%);
+  }
+  .hero-logo {
+    display: none;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 64px;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: lowercase;
+    color: var(--accent);
+    position: relative;
+  }
+  .hero .confidential {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,235,0.25);
+  }
+
+  /* ── Sections ── */
+  section { padding: 60px 40px; }
+  .section-dark { background: var(--dark); color: var(--cream); }
+  .section-cream { background: var(--cream); }
+  .section-warm { background: var(--warm-cream); }
+  .section-chocolate { background: var(--chocolate); color: var(--cream); }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: lowercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 0.12em;
+    text-transform: lowercase;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .max-w { max-width: 960px; margin: 0 auto; }
+  .max-w-lg { max-width: 1200px; margin: 0 auto; }
+
+  /* ── Narrative ── */
+  .narrative {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.8;
+    font-weight: 300;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+
+  /* ── Color Palette ── */
+  .palette {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .swatch {
+    text-align: center;
+  }
+  .swatch-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .swatch-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    color: var(--muted);
+  }
+  .swatch-hex {
+    font-size: 10px;
+    color: var(--accent);
+    font-family: 'DM Sans', monospace;
+    margin-top: 2px;
+  }
+
+  /* ── Flavors ── */
+  .flavors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .flavor-card {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: 12px;
+    background: var(--cream);
+    border: 1px solid rgba(60,36,21,0.06);
+  }
+  .flavor-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .flavor-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .flavor-desc {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Persona ── */
+  .persona-box {
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 48px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .persona-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .persona-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .persona-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(245,240,235,0.8);
+  }
+
+  /* ── Packaging Grid ── */
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .pkg-header {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    padding: 8px 0;
+    font-weight: 500;
+  }
+  .pkg-row-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--chocolate);
+    padding-top: 60px;
+    text-align: right;
+    padding-right: 16px;
+  }
+  .pkg-cell {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--warm-cream);
+    border: 1px solid rgba(60,36,21,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pkg-cell:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(26,18,16,0.12);
+  }
+  .pkg-cell img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .pkg-cell-label {
+    padding: 12px 16px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .pkg-empty {
+    border-radius: 12px;
+    background: var(--warm-cream);
+    border: 2px dashed rgba(60,36,21,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Mood Board ── */
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .mood-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+  }
+  .mood-grid img:hover { transform: scale(1.03); }
+  .mood-grid .tall { grid-row: span 2; aspect-ratio: auto; height: 100%; }
+
+  /* ── RTBs ── */
+  .rtb-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .rtb-item {
+    text-align: center;
+  }
+  .rtb-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .rtb-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .rtb-desc {
+    font-size: 13px;
+    color: rgba(245,240,235,0.6);
+    line-height: 1.6;
+  }
+
+  /* ── Voice ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .voice-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .voice-col.yes h3 { color: var(--sage); }
+  .voice-col.no h3 { color: var(--accent-deep); }
+  .voice-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin: 4px;
+  }
+  .voice-col.yes .voice-tag {
+    background: rgba(139,158,135,0.12);
+    color: var(--sage);
+    border: 1px solid rgba(139,158,135,0.25);
+  }
+  .voice-col.no .voice-tag {
+    background: rgba(107,58,58,0.08);
+    color: var(--accent-deep);
+    border: 1px solid rgba(107,58,58,0.2);
+    text-decoration: line-through;
+  }
+
+  /* ── Product Details ── */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .detail-card {
+    text-align: center;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(60,36,21,0.08);
+    background: rgba(245,240,235,0.5);
+  }
+  .detail-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  /* ── Accessories ── */
+  .acc-list {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .acc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(60,36,21,0.08);
+  }
+  .acc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .acc-price {
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--dark);
+  }
+
+  /* ── Divider ── */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto 40px;
+    opacity: 0.4;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <span class="confidential">confidential — project xx</span>
+    <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/logo-light.png" class="hero-logo" alt="Quiet Society logo">
+    <h1 class="heading">quiet society</h1>
+    <p class="tagline">for the composed ones</p>
+  </div>
+
+  <!-- ═══ NARRATIVE ═══ -->
+  <section class="section-cream">
+    <div class="section-label">brand narrative</div>
+    <div class="divider"></div>
+    <p class="narrative">
+      Quiet strength has its own language. It does not compete, perform, or signal loudly.
+      It simply holds steady. Quiet Society is built for people who live that way — those who
+      prefer composure over intensity, subtle cues over big statements, and calm control over noise.
+    </p>
+    <p class="narrative" style="margin-top: 20px; font-size: 18px; color: var(--muted);">
+      Life puts us off balance in small ways: the shift in a room, the quick change of pace,
+      the emotional transitions that happen without warning. Quiet Society offers a discreet moment
+      to gather yourself — a luxe micro-ritual that smooths the edges and brings you back to centre.
+    </p>
+  </section>
+
+  <!-- ═══ COLOR PALETTE ═══ -->
+  <section class="section-warm">
+    <div class="section-label">color palette</div>
+    <div class="section-title heading">the quiet society world</div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #3C2415;"></div>
+        <div class="swatch-label">chocolate</div>
+        <div class="swatch-hex">#3C2415</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #6B3A3A;"></div>
+        <div class="swatch-label">accent</div>
+        <div class="swatch-hex">#6B3A3A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #8B6142;"></div>
+        <div class="swatch-label">warm brown</div>
+        <div class="swatch-hex">#8B6142</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #F5F0EB;"></div>
+        <div class="swatch-label">cream</div>
+        <div class="swatch-hex">#F5F0EB</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #8B9E87;"></div>
+        <div class="swatch-label">mossy sage</div>
+        <div class="swatch-hex">#8B9E87</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #B89B5A;"></div>
+        <div class="swatch-label">dark gold</div>
+        <div class="swatch-hex">#B89B5A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #C4A0A0;"></div>
+        <div class="swatch-label">smoke rose</div>
+        <div class="swatch-hex">#C4A0A0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FLAVORS ═══ -->
+  <section class="section-chocolate">
+    <div class="section-label" style="color: var(--accent);">flavors</div>
+    <div class="section-title heading" style="color: var(--cream);">the collection</div>
+    <div class="flavors-grid">
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: #8B9E87;"></div>
+        <div class="flavor-name heading">Polished Mint</div>
+        <div class="flavor-desc">Refined & soft</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: #B89B5A;"></div>
+        <div class="flavor-name heading">Bergamot</div>
+        <div class="flavor-desc">Complex & aromatic</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: #C4A0A0;"></div>
+        <div class="flavor-name heading">Jasmine</div>
+        <div class="flavor-desc">Sophisticated & floral</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONSUMER PERSONA ═══ -->
+  <section class="section-cream">
+    <div class="section-label">consumer</div>
+    <div class="section-title heading">who she is</div>
+    <div class="persona-box">
+      <div class="persona-label">Persona A — The Discreet Self-Regulator</div>
+      <div class="persona-title heading">She transitions between client presentations and managing her team without missing a beat.</div>
+      <p class="persona-text">
+        The move to oral nicotine was a conscious choice for something cleaner and more private.
+        She does not want a product that announces itself. She values composure over intensity,
+        subtle cues over big statements, and calm control over noise.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ MOOD BOARD ═══ -->
+  <section class="section-warm">
+    <div class="section-label">mood board</div>
+    <div class="section-title heading">visual world</div>
+    <div class="mood-grid" style="max-width: 960px; margin: 0 auto;">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/hero.jpeg" alt="QS Hero" class="tall" style="grid-row: span 2;">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/mood.jpeg" alt="QS Mood">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/concept-a.jpeg" alt="QS Concept A">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/concept-b.jpeg" alt="QS Concept B">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/logo.jpeg" alt="QS Logo Detail">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/flatlay-puck.jpg" alt="QS Flatlay">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/quiet-society/polished-mint-archive.jpg" alt="QS Polished Mint Archive">
+    </div>
+  </section>
+
+  <!-- ═══ PACKAGING — A/B/C GRID ═══ -->
+  <section class="section-cream">
+    <div class="section-label">packaging concepts</div>
+    <div class="section-title heading">option exploration</div>
+    <div class="max-w-lg">
+      <div class="pkg-grid">
+        <!-- Header row -->
+        <div></div>
+        <div class="pkg-header">Option A</div>
+        <div class="pkg-header">Option B</div>
+        <div class="pkg-header">Option C</div>
+
+        <!-- Cans row -->
+        <div class="pkg-row-label">The Puck<br><span style="font-family: 'DM Sans'; font-size: 11px; color: var(--muted);">15ct round tin</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/product.jpeg" alt="Can Option A">
+          <div class="pkg-cell-label">Primary render — full brand lockup</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/flatlay-puck.jpg" alt="Can Option B">
+          <div class="pkg-cell-label">Flatlay — collection overview</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/packaging.jpeg" alt="Can Option C">
+          <div class="pkg-cell-label">Detail — tin close-up texture</div>
+        </div>
+
+        <!-- Mega Pack row -->
+        <div class="pkg-row-label">Mega Pack<br><span style="font-family: 'DM Sans'; font-size: 11px; color: var(--muted);">100ct bag</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/archive-dark.jpg" alt="Mega Option A">
+          <div class="pkg-cell-label">Dark — Bergamot colorway</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/archive-light.jpg" alt="Mega Option B">
+          <div class="pkg-cell-label">Light — cream colorway</div>
+        </div>
+        <div class="pkg-empty">
+          <span>Option C — TBD</span>
+        </div>
+
+        <!-- Accessories row -->
+        <div class="pkg-row-label">Accessories<br><span style="font-family: 'DM Sans'; font-size: 11px; color: var(--muted);">carry + display</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/quiet-society/accessory.jpeg" alt="Accessory Option A">
+          <div class="pkg-cell-label">Cognac leather + sage compact</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/quiet-society/polished-mint-archive.jpg" alt="Accessory Option B">
+          <div class="pkg-cell-label">Polished Mint archive set</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/quiet-society/bergamot-archive.jpg" alt="Accessory Option C">
+          <div class="pkg-cell-label">Bergamot archive set</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCT DETAILS ═══ -->
+  <section class="section-chocolate">
+    <div class="section-label" style="color: var(--accent);">product specs</div>
+    <div class="section-title heading" style="color: var(--cream);">the system</div>
+    <div class="details-grid">
+      <div class="detail-card">
+        <div class="detail-label">Format</div>
+        <div class="detail-value heading">15ct Round Tin</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-label">Mega Pack</div>
+        <div class="detail-value heading">100ct Bag</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-label">Typography</div>
+        <div class="detail-value heading">Cormorant Garamond</div>
+      </div>
+    </div>
+    <div style="margin-top: 40px;">
+      <div class="acc-list" style="color: var(--cream);">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div class="section-label" style="color: var(--accent);">accessories</div>
+        </div>
+        <div class="acc-item" style="border-color: rgba(245,240,235,0.1);">
+          <span class="acc-name heading" style="color: var(--cream);">Translucent sage disc keychain</span>
+          <span class="acc-price">$12</span>
+        </div>
+        <div class="acc-item" style="border-color: rgba(245,240,235,0.1);">
+          <span class="acc-name heading" style="color: var(--cream);">Frosted dome compact</span>
+          <span class="acc-price">$30</span>
+        </div>
+        <div class="acc-item" style="border-color: rgba(245,240,235,0.1);">
+          <span class="acc-name heading" style="color: var(--cream);">Cognac leather zip pouch</span>
+          <span class="acc-price">$85</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RTBs ═══ -->
+  <section class="section-dark">
+    <div class="section-label">reasons to believe</div>
+    <div class="section-title heading" style="color: var(--cream);">why quiet society</div>
+    <div class="rtb-list">
+      <div class="rtb-item">
+        <div class="rtb-number">01</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Discreet by Design</div>
+        <div class="rtb-desc">Engineered for low visibility and social ease</div>
+      </div>
+      <div class="rtb-item">
+        <div class="rtb-number">02</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Refined Sensory Profile</div>
+        <div class="rtb-desc">Smoothness and control over intensity</div>
+      </div>
+      <div class="rtb-item">
+        <div class="rtb-number">03</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Clear Ownable Brand World</div>
+        <div class="rtb-desc">Understated taste and quiet confidence</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRAND VOICE ═══ -->
+  <section class="section-cream">
+    <div class="section-label">brand voice</div>
+    <div class="section-title heading">how we speak</div>
+    <div class="voice-grid">
+      <div class="voice-col yes">
+        <h3 class="heading">we say</h3>
+        <span class="voice-tag">composure</span>
+        <span class="voice-tag">steady</span>
+        <span class="voice-tag">intentional</span>
+        <span class="voice-tag">discreet</span>
+        <span class="voice-tag">refined</span>
+      </div>
+      <div class="voice-col no">
+        <h3 class="heading">we never say</h3>
+        <span class="voice-tag">calm down</span>
+        <span class="voice-tag">stress relief</span>
+        <span class="voice-tag">wellness</span>
+        <span class="voice-tag">self-care</span>
+        <span class="voice-tag">treat yourself</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    Project XX — Turning Point Brands — Confidential — April 2026
+  </div>
+
+</body>
+</html>

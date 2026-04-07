@@ -1,0 +1,4726 @@
+{
+  "events": [
+    {
+      "school": "UMass",
+      "date": "2025-08-29",
+      "type": "DIL",
+      "state": "MA",
+      "prefix": "010",
+      "tier": "insufficient",
+      "retail_status": "moderate",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 1.0,
+      "post_4w_avg": 0,
+      "post_8_12w_avg": 0,
+      "stores_total": 241,
+      "stores_fre": 34,
+      "fre_vol": 1711,
+      "cat_vol": 775273,
+      "fre_share": 0.22,
+      "penetration": 14.1,
+      "dtc_cumulative": 7395,
+      "series": [
+        {
+          "week": "2025-08-25",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "Michigan",
+      "date": "2025-08-29",
+      "type": "DIL",
+      "state": "MI",
+      "prefix": "481",
+      "tier": "positive",
+      "retail_status": "strong",
+      "lift_pct": 9,
+      "sustained_pct": 42,
+      "pre_4w_avg": 8.2,
+      "post_4w_avg": 9.0,
+      "post_8_12w_avg": 11.8,
+      "stores_total": 1138,
+      "stores_fre": 408,
+      "fre_vol": 92814,
+      "cat_vol": 4177584,
+      "fre_share": 2.22,
+      "penetration": 35.9,
+      "dtc_cumulative": 168997,
+      "series": [
+        {
+          "week": "2025-06-02",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-06-09",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-06-16",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-06-23",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 11,
+          "customers": 10
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 12,
+          "customers": 12
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 15,
+          "customers": 15
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 14,
+          "customers": 13
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 13,
+          "customers": 13
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 12,
+          "customers": 12
+        }
+      ]
+    },
+    {
+      "school": "Hawaii",
+      "date": "2025-08-30",
+      "type": "DIL",
+      "state": "HI",
+      "prefix": "968",
+      "tier": "strong",
+      "retail_status": "void",
+      "lift_pct": 36,
+      "sustained_pct": 36,
+      "pre_4w_avg": 2.8,
+      "post_4w_avg": 3.8,
+      "post_8_12w_avg": 3.8,
+      "stores_total": 0,
+      "stores_fre": 0,
+      "fre_vol": 0,
+      "cat_vol": 0,
+      "fre_share": 0,
+      "penetration": 0,
+      "dtc_cumulative": 36973,
+      "series": [
+        {
+          "week": "2025-06-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-06-16",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-06-23",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 2,
+          "customers": 2
+        }
+      ]
+    },
+    {
+      "school": "Miami (FL)",
+      "date": "2025-08-31",
+      "type": "DIL",
+      "state": "FL",
+      "prefix": "331",
+      "tier": "positive",
+      "retail_status": "moderate",
+      "lift_pct": 7,
+      "sustained_pct": 14,
+      "pre_4w_avg": 3.5,
+      "post_4w_avg": 3.8,
+      "post_8_12w_avg": 4.0,
+      "stores_total": 480,
+      "stores_fre": 70,
+      "fre_vol": 6235,
+      "cat_vol": 1687384,
+      "fre_share": 0.37,
+      "penetration": 14.6,
+      "dtc_cumulative": 187450,
+      "series": [
+        {
+          "week": "2025-06-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-06-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-06-23",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 6,
+          "customers": 6
+        }
+      ]
+    },
+    {
+      "school": "Central Michigan",
+      "date": "2025-09-05",
+      "type": "DIL",
+      "state": "MI",
+      "prefix": "488",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -9,
+      "sustained_pct": 55,
+      "pre_4w_avg": 2.8,
+      "post_4w_avg": 2.5,
+      "post_8_12w_avg": 4.2,
+      "stores_total": 452,
+      "stores_fre": 149,
+      "fre_vol": 48734,
+      "cat_vol": 2755711,
+      "fre_share": 1.77,
+      "penetration": 33.0,
+      "dtc_cumulative": 75793,
+      "series": [
+        {
+          "week": "2025-06-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-06-16",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-06-23",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 6,
+          "customers": 5
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "North Dakota",
+      "date": "2025-09-06",
+      "type": "DIL",
+      "state": "ND",
+      "prefix": "582",
+      "tier": "insufficient",
+      "retail_status": "void",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 1.2,
+      "post_4w_avg": 2.0,
+      "post_8_12w_avg": 1.2,
+      "stores_total": 0,
+      "stores_fre": 0,
+      "fre_vol": 0,
+      "cat_vol": 0,
+      "fre_share": 0,
+      "penetration": 0,
+      "dtc_cumulative": 24186,
+      "series": [
+        {
+          "week": "2025-06-23",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 2,
+          "customers": 2
+        }
+      ]
+    },
+    {
+      "school": "Miami (OH)",
+      "date": "2025-09-06",
+      "type": "DIL",
+      "state": "OH",
+      "prefix": "450",
+      "tier": "positive",
+      "retail_status": "strong",
+      "lift_pct": 7,
+      "sustained_pct": 33,
+      "pre_4w_avg": 3.8,
+      "post_4w_avg": 4.0,
+      "post_8_12w_avg": 5.0,
+      "stores_total": 268,
+      "stores_fre": 109,
+      "fre_vol": 28079,
+      "cat_vol": 1149575,
+      "fre_share": 2.44,
+      "penetration": 40.7,
+      "dtc_cumulative": 69285,
+      "series": [
+        {
+          "week": "2025-06-16",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-06-23",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 4,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 5,
+          "customers": 5
+        }
+      ]
+    },
+    {
+      "school": "ECU",
+      "date": "2025-09-10",
+      "type": "DIL",
+      "state": "NC",
+      "prefix": "278",
+      "tier": "negative",
+      "retail_status": "moderate",
+      "lift_pct": -22,
+      "sustained_pct": -11,
+      "pre_4w_avg": 2.2,
+      "post_4w_avg": 1.8,
+      "post_8_12w_avg": 2.0,
+      "stores_total": 350,
+      "stores_fre": 50,
+      "fre_vol": 5807,
+      "cat_vol": 371906,
+      "fre_share": 1.56,
+      "penetration": 14.3,
+      "dtc_cumulative": 31970,
+      "series": [
+        {
+          "week": "2025-06-30",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "Oklahoma",
+      "date": "2025-09-12",
+      "type": "DIL",
+      "state": "OK",
+      "prefix": "730",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -11,
+      "sustained_pct": -21,
+      "pre_4w_avg": 7.0,
+      "post_4w_avg": 6.2,
+      "post_8_12w_avg": 5.5,
+      "stores_total": 535,
+      "stores_fre": 208,
+      "fre_vol": 85070,
+      "cat_vol": 4192017,
+      "fre_share": 2.03,
+      "penetration": 38.9,
+      "dtc_cumulative": 132095,
+      "series": [
+        {
+          "week": "2025-06-23",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 12,
+          "customers": 11
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 6,
+          "customers": 6
+        }
+      ]
+    },
+    {
+      "school": "Washington State",
+      "date": "2025-09-13",
+      "type": "DIL",
+      "state": "WA",
+      "prefix": "991",
+      "tier": "insufficient",
+      "retail_status": "strong",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 1.5,
+      "post_4w_avg": 1.5,
+      "post_8_12w_avg": 3.0,
+      "stores_total": 87,
+      "stores_fre": 24,
+      "fre_vol": 11410,
+      "cat_vol": 596730,
+      "fre_share": 1.91,
+      "penetration": 27.6,
+      "dtc_cumulative": 70627,
+      "series": [
+        {
+          "week": "2025-06-23",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "Louisville",
+      "date": "2025-09-13",
+      "type": "DIL",
+      "state": "KY",
+      "prefix": "402",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -24,
+      "sustained_pct": -33,
+      "pre_4w_avg": 5.2,
+      "post_4w_avg": 4.0,
+      "post_8_12w_avg": 3.5,
+      "stores_total": 302,
+      "stores_fre": 98,
+      "fre_vol": 17287,
+      "cat_vol": 1215567,
+      "fre_share": 1.42,
+      "penetration": 32.5,
+      "dtc_cumulative": 80231,
+      "series": [
+        {
+          "week": "2025-06-23",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 3,
+          "customers": 3
+        }
+      ]
+    },
+    {
+      "school": "UNR",
+      "date": "2025-09-20",
+      "type": "DIL",
+      "state": "NV",
+      "prefix": "895",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -8,
+      "sustained_pct": -15,
+      "pre_4w_avg": 3.2,
+      "post_4w_avg": 3.0,
+      "post_8_12w_avg": 2.8,
+      "stores_total": 140,
+      "stores_fre": 46,
+      "fre_vol": 9934,
+      "cat_vol": 2553114,
+      "fre_share": 0.39,
+      "penetration": 32.9,
+      "dtc_cumulative": 97620,
+      "series": [
+        {
+          "week": "2025-06-30",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 4,
+          "customers": 4
+        }
+      ]
+    },
+    {
+      "school": "SDSU",
+      "date": "2025-09-27",
+      "type": "DIL",
+      "state": "CA",
+      "prefix": "921",
+      "tier": "positive",
+      "retail_status": "strong",
+      "lift_pct": 4,
+      "sustained_pct": 9,
+      "pre_4w_avg": 33.2,
+      "post_4w_avg": 34.5,
+      "post_8_12w_avg": 36.2,
+      "stores_total": 591,
+      "stores_fre": 176,
+      "fre_vol": 32093,
+      "cat_vol": 2189796,
+      "fre_share": 1.47,
+      "penetration": 29.8,
+      "dtc_cumulative": 177684,
+      "series": [
+        {
+          "week": "2025-06-30",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 26,
+          "customers": 26
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 37,
+          "customers": 37
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 32,
+          "customers": 32
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 35,
+          "customers": 35
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 27,
+          "customers": 27
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 33,
+          "customers": 33
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 37,
+          "customers": 37
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 37,
+          "customers": 37
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 30,
+          "customers": 30
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 34,
+          "customers": 34
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 33,
+          "customers": 33
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 36,
+          "customers": 36
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 44,
+          "customers": 44
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 35,
+          "customers": 35
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 30,
+          "customers": 30
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 29,
+          "customers": 29
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 41,
+          "customers": 41
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 51,
+          "customers": 51
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 36,
+          "customers": 36
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 35,
+          "customers": 35
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 38,
+          "customers": 38
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 36,
+          "customers": 36
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 30,
+          "customers": 30
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 41,
+          "customers": 41
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 22,
+          "customers": 22
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 49,
+          "customers": 48
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 23,
+          "customers": 23
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 52,
+          "customers": 52
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 23,
+          "customers": 23
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 42,
+          "customers": 42
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 31,
+          "customers": 31
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 33,
+          "customers": 33
+        }
+      ]
+    },
+    {
+      "school": "Florida (UF)",
+      "date": "2025-09-27",
+      "type": "DIL",
+      "state": "FL",
+      "prefix": "326",
+      "tier": "insufficient",
+      "retail_status": "moderate",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 2.0,
+      "post_4w_avg": 3.2,
+      "post_8_12w_avg": 2.5,
+      "stores_total": 277,
+      "stores_fre": 43,
+      "fre_vol": 7472,
+      "cat_vol": 1433998,
+      "fre_share": 0.52,
+      "penetration": 15.5,
+      "dtc_cumulative": 31105,
+      "series": [
+        {
+          "week": "2025-06-30",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 3,
+          "customers": 3
+        }
+      ]
+    },
+    {
+      "school": "LSU",
+      "date": "2025-10-04",
+      "type": "DIL",
+      "state": "LA",
+      "prefix": "708",
+      "tier": "positive",
+      "retail_status": "moderate",
+      "lift_pct": 11,
+      "sustained_pct": -17,
+      "pre_4w_avg": 4.5,
+      "post_4w_avg": 5.0,
+      "post_8_12w_avg": 3.8,
+      "stores_total": 214,
+      "stores_fre": 24,
+      "fre_vol": 1509,
+      "cat_vol": 1143467,
+      "fre_share": 0.13,
+      "penetration": 11.2,
+      "dtc_cumulative": 0,
+      "series": [
+        {
+          "week": "2025-07-14",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 6,
+          "customers": 6
+        }
+      ]
+    },
+    {
+      "school": "Missouri",
+      "date": "2025-10-04",
+      "type": "DIL",
+      "state": "MO",
+      "prefix": "652",
+      "tier": "insufficient",
+      "retail_status": "void",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 2.0,
+      "post_4w_avg": 2.0,
+      "post_8_12w_avg": 1.5,
+      "stores_total": 0,
+      "stores_fre": 0,
+      "fre_vol": 0,
+      "cat_vol": 0,
+      "fre_share": 0,
+      "penetration": 0,
+      "dtc_cumulative": 32713,
+      "series": [
+        {
+          "week": "2025-07-14",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 3,
+          "customers": 3
+        }
+      ]
+    },
+    {
+      "school": "Nebraska",
+      "date": "2025-10-11",
+      "type": "DIL",
+      "state": "NE",
+      "prefix": "685",
+      "tier": "insufficient",
+      "retail_status": "void",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 2.0,
+      "post_4w_avg": 2.0,
+      "post_8_12w_avg": 1.5,
+      "stores_total": 0,
+      "stores_fre": 0,
+      "fre_vol": 0,
+      "cat_vol": 0,
+      "fre_share": 0,
+      "penetration": 0,
+      "dtc_cumulative": 44461,
+      "series": [
+        {
+          "week": "2025-07-21",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 2,
+          "customers": 2
+        }
+      ]
+    },
+    {
+      "school": "Minnesota",
+      "date": "2025-10-17",
+      "type": "DIL",
+      "state": "MN",
+      "prefix": "554",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -9,
+      "sustained_pct": -21,
+      "pre_4w_avg": 20.0,
+      "post_4w_avg": 18.2,
+      "post_8_12w_avg": 15.8,
+      "stores_total": 413,
+      "stores_fre": 153,
+      "fre_vol": 57194,
+      "cat_vol": 2038059,
+      "fre_share": 2.81,
+      "penetration": 37.0,
+      "dtc_cumulative": 31953,
+      "series": [
+        {
+          "week": "2025-07-21",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 18,
+          "customers": 18
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 19,
+          "customers": 18
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 20,
+          "customers": 20
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 15,
+          "customers": 15
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 15,
+          "customers": 15
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 20,
+          "customers": 20
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 15,
+          "customers": 14
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 16,
+          "customers": 16
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 18,
+          "customers": 18
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 29,
+          "customers": 28
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 17,
+          "customers": 17
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 16,
+          "customers": 16
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 18,
+          "customers": 18
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 24,
+          "customers": 22
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 21,
+          "customers": 21
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 14,
+          "customers": 14
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 19,
+          "customers": 19
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 21,
+          "customers": 21
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 15,
+          "customers": 15
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 19,
+          "customers": 19
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 12,
+          "customers": 12
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 15,
+          "customers": 15
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 17,
+          "customers": 17
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 22,
+          "customers": 22
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 16,
+          "customers": 16
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 23,
+          "customers": 23
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 24,
+          "customers": 24
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 19,
+          "customers": 19
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 24,
+          "customers": 24
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 26,
+          "customers": 26
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 12,
+          "customers": 12
+        }
+      ]
+    },
+    {
+      "school": "UNH",
+      "date": "2025-10-18",
+      "type": "DIL",
+      "state": "NH",
+      "prefix": "038",
+      "tier": "strong",
+      "retail_status": "void",
+      "lift_pct": 53,
+      "sustained_pct": 47,
+      "pre_4w_avg": 3.8,
+      "post_4w_avg": 5.8,
+      "post_8_12w_avg": 5.5,
+      "stores_total": 0,
+      "stores_fre": 0,
+      "fre_vol": 0,
+      "cat_vol": 0,
+      "fre_share": 0,
+      "penetration": 0,
+      "dtc_cumulative": 229159,
+      "series": [
+        {
+          "week": "2025-07-21",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 14,
+          "customers": 14
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 10,
+          "customers": 10
+        }
+      ]
+    },
+    {
+      "school": "Texas (UT)",
+      "date": "2025-10-18",
+      "type": "DIL",
+      "state": "TX",
+      "prefix": "787",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -19,
+      "sustained_pct": -33,
+      "pre_4w_avg": 9.0,
+      "post_4w_avg": 7.2,
+      "post_8_12w_avg": 6.0,
+      "stores_total": 624,
+      "stores_fre": 253,
+      "fre_vol": 43672,
+      "cat_vol": 2100435,
+      "fre_share": 2.08,
+      "penetration": 40.5,
+      "dtc_cumulative": 635928,
+      "series": [
+        {
+          "week": "2025-07-21",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 9,
+          "customers": 8
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 12,
+          "customers": 12
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 12,
+          "customers": 12
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 12,
+          "customers": 12
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 10,
+          "customers": 10
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 17,
+          "customers": 17
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 7,
+          "customers": 7
+        }
+      ]
+    },
+    {
+      "school": "Arizona",
+      "date": "2025-10-25",
+      "type": "DIL",
+      "state": "AZ",
+      "prefix": "857",
+      "tier": "negative",
+      "retail_status": "void",
+      "lift_pct": -33,
+      "sustained_pct": -33,
+      "pre_4w_avg": 6.8,
+      "post_4w_avg": 4.5,
+      "post_8_12w_avg": 4.5,
+      "stores_total": 0,
+      "stores_fre": 0,
+      "fre_vol": 0,
+      "cat_vol": 0,
+      "fre_share": 0,
+      "penetration": 0,
+      "dtc_cumulative": 157624,
+      "series": [
+        {
+          "week": "2025-07-28",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 11,
+          "customers": 11
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 8,
+          "customers": 8
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 9,
+          "customers": 8
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 8,
+          "customers": 8
+        }
+      ]
+    },
+    {
+      "school": "FSU",
+      "date": "2025-10-31",
+      "type": "DIL",
+      "state": "FL",
+      "prefix": "323",
+      "tier": "negative",
+      "retail_status": "weak",
+      "lift_pct": -42,
+      "sustained_pct": -58,
+      "pre_4w_avg": 3.0,
+      "post_4w_avg": 1.8,
+      "post_8_12w_avg": 1.2,
+      "stores_total": 11,
+      "stores_fre": 1,
+      "fre_vol": 95,
+      "cat_vol": 16966,
+      "fre_share": 0.56,
+      "penetration": 9.1,
+      "dtc_cumulative": 46601,
+      "series": [
+        {
+          "week": "2025-08-04",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-16",
+          "orders": 2,
+          "customers": 2
+        }
+      ]
+    },
+    {
+      "school": "Coastal Carolina",
+      "date": "2025-11-01",
+      "type": "DIL",
+      "state": "SC",
+      "prefix": "295",
+      "tier": "negative",
+      "retail_status": "moderate",
+      "lift_pct": -15,
+      "sustained_pct": -31,
+      "pre_4w_avg": 3.2,
+      "post_4w_avg": 2.8,
+      "post_8_12w_avg": 2.2,
+      "stores_total": 801,
+      "stores_fre": 194,
+      "fre_vol": 31738,
+      "cat_vol": 2659812,
+      "fre_share": 1.19,
+      "penetration": 24.2,
+      "dtc_cumulative": 52260,
+      "series": [
+        {
+          "week": "2025-08-11",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-16",
+          "orders": 4,
+          "customers": 4
+        }
+      ]
+    },
+    {
+      "school": "South Carolina",
+      "date": "2025-11-15",
+      "type": "DIL",
+      "state": "SC",
+      "prefix": "292",
+      "tier": "flat",
+      "retail_status": "strong",
+      "lift_pct": 0,
+      "sustained_pct": -11,
+      "pre_4w_avg": 2.2,
+      "post_4w_avg": 2.2,
+      "post_8_12w_avg": 2.0,
+      "stores_total": 288,
+      "stores_fre": 76,
+      "fre_vol": 15892,
+      "cat_vol": 1056871,
+      "fre_share": 1.5,
+      "penetration": 26.4,
+      "dtc_cumulative": 32765,
+      "series": [
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-16",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-03-23",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-30",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "Kentucky",
+      "date": "2025-11-15",
+      "type": "DIL",
+      "state": "KY",
+      "prefix": "405",
+      "tier": "insufficient",
+      "retail_status": "strong",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 2.0,
+      "post_4w_avg": 1.8,
+      "post_8_12w_avg": 1.5,
+      "stores_total": 124,
+      "stores_fre": 46,
+      "fre_vol": 13302,
+      "cat_vol": 631992,
+      "fre_share": 2.1,
+      "penetration": 37.1,
+      "dtc_cumulative": 46298,
+      "series": [
+        {
+          "week": "2025-08-18",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-08-25",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-16",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-23",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "PBR Manchester",
+      "date": "2025-12-12",
+      "type": "PBR",
+      "state": "NH",
+      "prefix": "031",
+      "tier": "strong",
+      "retail_status": "moderate",
+      "lift_pct": 56,
+      "sustained_pct": 33,
+      "pre_4w_avg": 2.2,
+      "post_4w_avg": 3.5,
+      "post_8_12w_avg": 3.0,
+      "stores_total": 86,
+      "stores_fre": 9,
+      "fre_vol": 2260,
+      "cat_vol": 335201,
+      "fre_share": 0.67,
+      "penetration": 10.5,
+      "dtc_cumulative": 77400,
+      "series": [
+        {
+          "week": "2025-09-22",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 3,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-26",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-03-16",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2026-03-23",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2026-03-30",
+          "orders": 3,
+          "customers": 3
+        }
+      ]
+    },
+    {
+      "school": "PBR Chicago",
+      "date": "2025-12-19",
+      "type": "PBR",
+      "state": "IL",
+      "prefix": "606",
+      "tier": "insufficient",
+      "retail_status": "strong",
+      "lift_pct": null,
+      "sustained_pct": null,
+      "pre_4w_avg": 1.8,
+      "post_4w_avg": 1.5,
+      "post_8_12w_avg": 1.2,
+      "stores_total": 368,
+      "stores_fre": 112,
+      "fre_vol": 19834,
+      "cat_vol": 3241763,
+      "fre_share": 0.61,
+      "penetration": 30.4,
+      "dtc_cumulative": 527996,
+      "series": [
+        {
+          "week": "2025-09-29",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-01-19",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-02",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2026-02-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-02-16",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-02-23",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-02",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-09",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2026-03-16",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-03-30",
+          "orders": 1,
+          "customers": 1
+        }
+      ]
+    },
+    {
+      "school": "Nashville",
+      "date": "2025-09-01",
+      "type": "CAMP",
+      "state": "TN",
+      "prefix": "372",
+      "tier": "negative",
+      "retail_status": "strong",
+      "lift_pct": -15,
+      "sustained_pct": 0,
+      "pre_4w_avg": 3.2,
+      "post_4w_avg": 2.8,
+      "post_8_12w_avg": 3.2,
+      "stores_total": 344,
+      "stores_fre": 186,
+      "fre_vol": 52273,
+      "cat_vol": 3125429,
+      "fre_share": 1.67,
+      "penetration": 54.1,
+      "dtc_cumulative": 139722,
+      "series": [
+        {
+          "week": "2025-06-09",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-06-16",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-06-23",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-06-30",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-07-07",
+          "orders": 6,
+          "customers": 6
+        },
+        {
+          "week": "2025-07-14",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-07-21",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-07-28",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-04",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-11",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-08-18",
+          "orders": 7,
+          "customers": 7
+        },
+        {
+          "week": "2025-09-01",
+          "orders": 5,
+          "customers": 5
+        },
+        {
+          "week": "2025-09-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-09-15",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-09-22",
+          "orders": 1,
+          "customers": 1
+        },
+        {
+          "week": "2025-09-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-06",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-10-13",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-10-20",
+          "orders": 3,
+          "customers": 2
+        },
+        {
+          "week": "2025-10-27",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-11-03",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-11-10",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-17",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-11-24",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2025-12-01",
+          "orders": 9,
+          "customers": 9
+        },
+        {
+          "week": "2025-12-08",
+          "orders": 3,
+          "customers": 3
+        },
+        {
+          "week": "2025-12-22",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2025-12-29",
+          "orders": 2,
+          "customers": 2
+        },
+        {
+          "week": "2026-01-05",
+          "orders": 4,
+          "customers": 4
+        },
+        {
+          "week": "2026-01-12",
+          "orders": 4,
+          "customers": 4
+        }
+      ]
+    }
+  ],
+  "quarterly": [
+    {
+      "label": "Q4 2023",
+      "tx": 6055,
+      "national": 67594
+    },
+    {
+      "label": "Q1 2024",
+      "tx": 25095,
+      "national": 413188
+    },
+    {
+      "label": "Q2 2024",
+      "tx": 55107,
+      "national": 818641
+    },
+    {
+      "label": "Q3 2024",
+      "tx": 104135,
+      "national": 1266587
+    },
+    {
+      "label": "Q4 2024",
+      "tx": 205291,
+      "national": 1906261
+    },
+    {
+      "label": "Q1 2025",
+      "tx": 229728,
+      "national": 1979945
+    },
+    {
+      "label": "Q2 2025",
+      "tx": 285686,
+      "national": 2499675
+    },
+    {
+      "label": "Q3 2025",
+      "tx": 313978,
+      "national": 2698403
+    },
+    {
+      "label": "Q4 2025",
+      "tx": 412825,
+      "national": 3372709
+    },
+    {
+      "label": "Q1 2026",
+      "tx": 546283,
+      "national": 3384849
+    }
+  ],
+  "oracle_tx": [
+    {
+      "month": "2025-07",
+      "cases": 1604,
+      "revenue": 567756
+    },
+    {
+      "month": "2025-08",
+      "cases": 1330,
+      "revenue": 469701
+    },
+    {
+      "month": "2025-09",
+      "cases": 3124,
+      "revenue": 1103058
+    },
+    {
+      "month": "2025-10",
+      "cases": 1555,
+      "revenue": 551844
+    },
+    {
+      "month": "2025-11",
+      "cases": 2190,
+      "revenue": 774333
+    },
+    {
+      "month": "2025-12",
+      "cases": 2668,
+      "revenue": 953496
+    },
+    {
+      "month": "2026-01",
+      "cases": 2558,
+      "revenue": 903996
+    },
+    {
+      "month": "2026-02",
+      "cases": 3672,
+      "revenue": 1296297
+    },
+    {
+      "month": "2026-03",
+      "cases": 4015,
+      "revenue": 1430154
+    }
+  ],
+  "meta": {
+    "analysis_date": "2026-04-03",
+    "sources": {
+      "ntc": "NTC Store Accounts (L52W ~Mar 2026)",
+      "haypp_dtc": "Haypp DTC Orders (Apr 2024 \u2013 Apr 2026)",
+      "haypp_zip": "Haypp ZIP-level DTC Units (cumulative)",
+      "oracle": "Oracle FRE Shipments (Jul 2025 \u2013 Mar 2026)",
+      "ntc_weekly": "NTC Weekly Trajectory (Q4 2023 \u2013 Q1 2026)"
+    },
+    "benchmarks": {
+      "national_share": 1.2,
+      "national_penetration": 26.5
+    }
+  }
+}

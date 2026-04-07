@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRE 6mg — The Quiet Giant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fre-red: #E40032;
+  --fre-red-dim: rgba(228,0,50,0.15);
+  --fre-red-glow: rgba(228,0,50,0.08);
+  --mint: #57CCF6;
+  --wintergreen: #007D61;
+  --lush: #98D801;
+  --watermelon: #26B094;
+  --sweet: #D4BE97;
+  --original: #A7A9B4;
+  --bg-dark: #0a0e1a;
+  --bg-mid: #101828;
+  --text-primary: #e8eaf0;
+  --text-dim: rgba(255,255,255,0.5);
+  --text-muted: rgba(255,255,255,0.35);
+  --card-bg: rgba(255,255,255,0.025);
+  --card-border: rgba(255,255,255,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg-dark); color: var(--text-primary); font-family: 'Inter', sans-serif; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+.panel {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.source-bar {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(255,255,255,0.06);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: left;
+  line-height: 1.5;
+}
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--fre-red);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.section-headline {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 700px;
+}
+.insight-box {
+  background: var(--fre-red-glow);
+  border-left: 3px solid var(--fre-red);
+  padding: 20px 24px;
+  border-radius: 0 12px 12px 0;
+  max-width: 900px;
+  margin-top: 32px;
+}
+.insight-box p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.7); }
+.insight-box strong { color: var(--fre-red); }
+.dual-source { display: flex; gap: 8px; align-items: center; margin-bottom: 4px; }
+.badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.badge-haypp { background: rgba(99,102,241,0.2); color: #818cf8; }
+.badge-dtc { background: var(--fre-red-dim); color: var(--fre-red); }
+
+/* ========== PANEL 1: HERO ========== */
+.hero {
+  background: linear-gradient(135deg, #0a0e1a 0%, #141b2d 50%, #1a1020 100%);
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--fre-red-glow) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--fre-red);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.0;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 30%, var(--fre-red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero h1 span { display: block; }
+.hero-sub {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text-dim);
+  max-width: 640px;
+  line-height: 1.55;
+  margin-bottom: 48px;
+}
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+.hero-stat { text-align: center; min-width: 140px; }
+.hero-stat .num { font-size: 44px; font-weight: 700; color: var(--fre-red); }
+.hero-stat .label {
+  font-size: 12px; font-weight: 500; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+}
+.hero-stat .sub-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* ========== PANEL 2: RETENTION ========== */
+.retention { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 100%); }
+.ret-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 960px; width: 100%; }
+.ret-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+.ret-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 24px; }
+.ret-row { display: flex; align-items: center; margin-bottom: 10px; }
+.ret-label { width: 50px; font-size: 14px; font-weight: 600; color: var(--text-dim); flex-shrink: 0; }
+.ret-track { flex: 1; height: 32px; background: rgba(255,255,255,0.03); border-radius: 6px; overflow: hidden; position: relative; }
+.ret-fill {
+  height: 100%; border-radius: 6px; display: flex; align-items: center;
+  justify-content: flex-end; padding-right: 10px;
+}
+.ret-fill span { font-size: 13px; font-weight: 700; color: #fff; }
+.ret-val { width: 50px; text-align: right; font-size: 13px; font-weight: 600; color: var(--text-muted); flex-shrink: 0; margin-left: 8px; }
+.ret-highlight { position: relative; }
+.ret-highlight .ret-label { color: var(--fre-red); }
+.crown { position: absolute; right: -6px; top: -20px; font-size: 16px; }
+
+/* ========== PANEL 3: CROSS-BUY ========== */
+.crossbuy { background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%); }
+.cb-flex { display: flex; gap: 40px; max-width: 960px; width: 100%; align-items: stretch; }
+.cb-donut {
+  flex: 0 0 280px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.donut-wrap { width: 180px; height: 180px; position: relative; margin-bottom: 16px; }
+.donut-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.donut-wrap circle { fill: none; stroke-width: 20; }
+.donut-center {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center;
+}
+.donut-center .big { font-size: 32px; font-weight: 800; color: var(--fre-red); }
+.donut-center .small { font-size: 12px; color: var(--text-dim); }
+.cb-details {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+.cb-details h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+.cb-pair { display: flex; align-items: center; margin-bottom: 12px; }
+.cb-mg { width: 50px; font-size: 14px; font-weight: 600; color: var(--text-dim); }
+.cb-bar-track { flex: 1; height: 28px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; }
+.cb-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; }
+.cb-bar-fill span { font-size: 12px; font-weight: 600; color: #fff; }
+.cb-pct { width: 45px; text-align: right; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-left: 8px; }
+.cb-compare {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+}
+.cb-compare h4 { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.cb-comp-row { display: flex; align-items: center; margin-bottom: 8px; }
+.cb-comp-label { width: 50px; font-size: 13px; color: var(--text-dim); }
+.cb-comp-val { font-size: 14px; font-weight: 600; margin-left: 8px; }
+
+/* ========== PANEL 4: TRIAL / ACQUISITION ========== */
+.trial { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 100%); }
+.trial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 960px; width: 100%; }
+.trial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+.trial-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+.trial-kpi { display: flex; gap: 16px; margin-bottom: 24px; }
+.trial-kpi-item {
+  flex: 1;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.trial-kpi-item .n { font-size: 28px; font-weight: 800; }
+.trial-kpi-item .l { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+.month-trend { margin-top: 16px; }
+.month-row { display: flex; align-items: center; margin-bottom: 8px; }
+.month-label { width: 50px; font-size: 13px; color: var(--text-dim); flex-shrink: 0; }
+.month-bar-track { flex: 1; height: 24px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; display: flex; }
+.month-bar-new { height: 100%; background: var(--fre-red); display: flex; align-items: center; justify-content: center; }
+.month-bar-ret { height: 100%; background: rgba(255,255,255,0.08); }
+.month-bar-new span { font-size: 10px; font-weight: 700; color: #fff; }
+.month-val { width: 55px; text-align: right; font-size: 12px; color: var(--text-muted); margin-left: 8px; flex-shrink: 0; }
+
+/* ========== PANEL 5: DEMOGRAPHICS ========== */
+.demographics { background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%); }
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 960px; width: 100%; }
+.demo-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+.demo-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 24px; }
+.age-row { display: flex; align-items: center; margin-bottom: 10px; }
+.age-label { width: 50px; font-size: 13px; color: var(--text-dim); flex-shrink: 0; }
+.age-track { flex: 1; height: 28px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; position: relative; }
+.age-fill-6 { height: 50%; background: var(--fre-red); border-radius: 4px 4px 0 0; position: absolute; top: 0; }
+.age-fill-15 { height: 50%; background: rgba(255,255,255,0.15); border-radius: 0 0 4px 4px; position: absolute; bottom: 0; }
+.age-pct { width: 80px; font-size: 12px; color: var(--text-muted); margin-left: 8px; flex-shrink: 0; text-align: right; }
+.demo-kpi-row { display: flex; gap: 12px; margin-bottom: 20px; }
+.demo-kpi {
+  flex: 1; background: rgba(255,255,255,0.02); border-radius: 8px; padding: 14px; text-align: center;
+}
+.demo-kpi .val { font-size: 22px; font-weight: 800; }
+.demo-kpi .label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* ========== PANEL 6: FLAVOR EVOLUTION ========== */
+.flavor-evo { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 100%); }
+.flavor-timeline { max-width: 900px; width: 100%; }
+.fl-row { display: flex; align-items: center; margin-bottom: 6px; }
+.fl-month { width: 60px; font-size: 12px; color: var(--text-muted); text-align: right; padding-right: 12px; flex-shrink: 0; }
+.fl-stack { flex: 1; height: 30px; display: flex; border-radius: 4px; overflow: hidden; }
+.fl-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; min-width: 0; overflow: hidden; }
+.fl-seg.mint-seg { background: var(--mint); color: #0a0e1a; }
+.fl-seg.wg-seg { background: var(--wintergreen); }
+.fl-seg.wm-seg { background: var(--watermelon); }
+.fl-seg.lush-seg { background: var(--lush); color: #0a0e1a; }
+.fl-seg.sweet-seg { background: var(--sweet); color: #0a0e1a; }
+.fl-seg.orig-seg { background: var(--original); color: #0a0e1a; }
+.fl-seg.fruit-seg { background: var(--fre-red); }
+.fl-seg.unflav-seg { background: #6366f1; }
+.fl-vol { font-size: 12px; color: var(--text-muted); margin-left: 10px; width: 55px; flex-shrink: 0; }
+.fl-legend { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+.fl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-dim); }
+.fl-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+/* DTC flavor card */
+.dtc-flavors { max-width: 900px; width: 100%; margin-top: 32px; }
+.dtc-flav-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.dtc-flav-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 16px; text-align: center;
+}
+.dtc-flav-card .name { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.dtc-flav-card .pct { font-size: 24px; font-weight: 800; }
+.dtc-flav-card .sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* ========== PANEL 7: GROWTH ========== */
+.growth-panel { background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%); }
+.growth-bars { display: flex; gap: 32px; align-items: flex-end; max-width: 700px; justify-content: center; margin-bottom: 32px; }
+.growth-col { text-align: center; flex: 1; }
+.growth-bar-wrapper { height: 260px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.growth-bar { width: 60px; border-radius: 6px 6px 0 0; position: relative; }
+.growth-bar .val { position: absolute; top: -28px; left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: 700; white-space: nowrap; }
+.growth-mg { font-size: 15px; font-weight: 600; margin-top: 12px; color: var(--text-dim); }
+.growth-note { font-size: 14px; color: var(--text-dim); text-align: center; max-width: 600px; line-height: 1.7; }
+
+/* ========== PANEL 8: AOV ========== */
+.aov-panel { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 100%); }
+.aov-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; max-width: 800px; width: 100%; }
+.aov-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 16px; padding: 28px; text-align: center;
+}
+.aov-card.highlight { border-color: rgba(228,0,50,0.3); background: var(--fre-red-glow); }
+.aov-card .big { font-size: 36px; font-weight: 800; }
+.aov-card .mid { font-size: 14px; color: var(--text-dim); margin-top: 4px; }
+.aov-card .sub { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+
+/* ========== PANEL 9: PUNCHLINE ========== */
+.punchline {
+  background: linear-gradient(135deg, #1a0808 0%, #0a0e1a 50%, #081a10 100%);
+  text-align: center;
+}
+.punchline h2 {
+  font-size: 46px; font-weight: 900; line-height: 1.2; max-width: 800px; margin-bottom: 36px;
+}
+.punchline h2 em { font-style: normal; color: var(--fre-red); }
+.punch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 800px; width: 100%; margin-bottom: 40px; }
+.punch-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.punch-card .n { font-size: 28px; font-weight: 800; color: var(--fre-red); }
+.punch-card .l { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+.punch-card .src { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 6px; }
+.punch-action { font-size: 15px; color: var(--text-dim); max-width: 640px; line-height: 1.7; }
+.punch-action strong { color: var(--fre-red); }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 42px; }
+  .ret-grid, .trial-grid, .demo-grid { grid-template-columns: 1fr; }
+  .cb-flex { flex-direction: column; }
+  .cb-donut { flex: auto; }
+  .dtc-flav-grid { grid-template-columns: repeat(3, 1fr); }
+  .punch-grid { grid-template-columns: repeat(2, 1fr); }
+  .aov-grid { grid-template-columns: 1fr; }
+  .growth-bars { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== PANEL 1: HERO ==================== -->
+<div class="panel hero">
+  <div class="hero-eyebrow">FRE Nicotine Pouches · Dual-Channel Deep Dive</div>
+  <h1 class="mono"><span>The 6mg</span><span>Quiet Giant</span></h1>
+  <p class="hero-sub">FRE's most underestimated strength is its stickiest, fastest-growing, and most loyal buyer base — across both DTC and e-commerce.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num mono">90.4%</div>
+      <div class="label">Repeat Rate (Haypp)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num mono">75.4%</div>
+      <div class="label">Returning Buyers (DTC)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num mono">+42%</div>
+      <div class="label">AOV Lift on Repeat</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num mono">77.5%</div>
+      <div class="label">6mg-Only Orders</div>
+    </div>
+  </div>
+  <div class="source-bar">
+    Sources: Haypp E-Commerce (FREIA) — Oct 2024 to Mar 2026, 413 SKU transaction records, 90K+ 6mg units<br>
+    FRE Shopify DTC — Q1 2026 (Jan 1 – Apr 1), 46,498 unique orders, 128,719 line items
+  </div>
+</div>
+
+<!-- ==================== PANEL 2: RETENTION ==================== -->
+<div class="panel retention">
+  <div class="section-title">Question 1 · Retention</div>
+  <div class="section-headline">Do 6mg Buyers Come Back?</div>
+  <p class="section-sub">Two independent channels, same answer: 6mg buyers are among the most loyal in the FRE portfolio.</p>
+  <div class="ret-grid">
+    <!-- Haypp -->
+    <div class="ret-card">
+      <div class="dual-source"><span class="badge badge-haypp">Haypp</span><h3>Repeat Purchase Rate (Cumulative)</h3></div>
+      <div class="ret-row"><div class="ret-label">3mg</div><div class="ret-track"><div class="ret-fill" style="width:82.5%; background:rgba(255,255,255,0.12);"><span>82.5%</span></div></div></div>
+      <div class="ret-row ret-highlight"><div class="ret-label">6mg</div><div class="ret-track"><div class="ret-fill" style="width:90.4%; background:var(--fre-red);"><span>90.4%</span></div></div><span class="crown">👑</span></div>
+      <div class="ret-row"><div class="ret-label">9mg</div><div class="ret-track"><div class="ret-fill" style="width:84.6%; background:rgba(255,255,255,0.12);"><span>84.6%</span></div></div></div>
+      <div class="ret-row"><div class="ret-label">12mg</div><div class="ret-track"><div class="ret-fill" style="width:87.8%; background:rgba(255,255,255,0.12);"><span>87.8%</span></div></div></div>
+      <div class="ret-row"><div class="ret-label">15mg</div><div class="ret-track"><div class="ret-fill" style="width:86.2%; background:rgba(255,255,255,0.12);"><span>86.2%</span></div></div></div>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:16px;">Only 9.6% of 6mg purchases are first-time trials — lowest of any strength</p>
+    </div>
+    <!-- DTC -->
+    <div class="ret-card">
+      <div class="dual-source"><span class="badge badge-dtc">Shopify DTC</span><h3>Returning vs New Customers (Q1 '26)</h3></div>
+      <div class="ret-row"><div class="ret-label">3mg</div><div class="ret-track"><div class="ret-fill" style="width:67.8%; background:rgba(255,255,255,0.12);"><span>67.8%</span></div></div></div>
+      <div class="ret-row"><div class="ret-label">6mg</div><div class="ret-track"><div class="ret-fill" style="width:75.4%; background:var(--fre-red); opacity:0.8;"><span>75.4%</span></div></div></div>
+      <div class="ret-row"><div class="ret-label">9mg</div><div class="ret-track"><div class="ret-fill" style="width:79.0%; background:rgba(255,255,255,0.12);"><span>79.0%</span></div></div></div>
+      <div class="ret-row"><div class="ret-label">12mg</div><div class="ret-track"><div class="ret-fill" style="width:81.3%; background:rgba(255,255,255,0.12);"><span>81.3%</span></div></div></div>
+      <div class="ret-row"><div class="ret-label">15mg</div><div class="ret-track"><div class="ret-fill" style="width:76.8%; background:rgba(255,255,255,0.12);"><span>76.8%</span></div></div></div>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:16px;">Returning 6mg buyers spend <strong style="color:var(--fre-red);">$89 AOV</strong> vs $63 for new — 42% more per order</p>
+    </div>
+  </div>
+  <div class="insight-box">
+    <p><strong>9 out of 10</strong> Haypp buyers who try FRE 6mg come back. On DTC, <strong>3 out of 4</strong> are repeat purchasers who spend 42% more than first-timers. Different channels, same signal: <strong>6mg builds loyalty like nothing else in the portfolio.</strong></p>
+  </div>
+  <div class="source-bar">Haypp: FREIA Product Explorer, cumulative trial vs repeat orders | Shopify: Order export, Jan 1–Apr 1, 2026, new/returning flag by order</div>
+</div>
+
+<!-- ==================== PANEL 3: CROSS-BUYING ==================== -->
+<div class="panel crossbuy">
+  <div class="section-title">Question 2 · Cross-Buying</div>
+  <div class="section-headline">Do 6mg Buyers Also Buy Other Strengths?</div>
+  <p class="section-sub">Shopify DTC data — 7,976 orders containing at least one 6mg product</p>
+  <div class="cb-flex">
+    <div class="cb-donut">
+      <div class="donut-wrap">
+        <svg viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="70" stroke="rgba(255,255,255,0.06)" stroke-width="28"/>
+          <circle cx="100" cy="100" r="70" stroke="var(--fre-red)" stroke-width="28"
+            stroke-dasharray="341 440" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="70" stroke="rgba(255,255,255,0.15)" stroke-width="28"
+            stroke-dasharray="99 440" stroke-dashoffset="-341"/>
+        </svg>
+        <div class="donut-center">
+          <div class="big mono">77.5%</div>
+          <div class="small">6mg Only</div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:var(--text-dim); text-align:center; line-height:1.5;">
+        <strong style="color:var(--fre-red);">6,180</strong> orders contained exclusively 6mg products
+      </p>
+    </div>
+    <div class="cb-details">
+      <h3>When 6mg Buyers Do Mix (22.5% of orders):</h3>
+      <div class="cb-pair">
+        <div class="cb-mg mono">9mg</div>
+        <div class="cb-bar-track"><div class="cb-bar-fill" style="width:52%; background:rgba(255,255,255,0.2);"><span>927</span></div></div>
+        <div class="cb-pct mono">11.6%</div>
+      </div>
+      <div class="cb-pair">
+        <div class="cb-mg mono">3mg</div>
+        <div class="cb-bar-track"><div class="cb-bar-fill" style="width:33%; background:rgba(255,255,255,0.15);"><span>592</span></div></div>
+        <div class="cb-pct mono">7.4%</div>
+      </div>
+      <div class="cb-pair">
+        <div class="cb-mg mono">15mg</div>
+        <div class="cb-bar-track"><div class="cb-bar-fill" style="width:23%; background:rgba(255,255,255,0.1);"><span>406</span></div></div>
+        <div class="cb-pct mono">5.1%</div>
+      </div>
+      <div class="cb-pair">
+        <div class="cb-mg mono">12mg</div>
+        <div class="cb-bar-track"><div class="cb-bar-fill" style="width:21%; background:rgba(255,255,255,0.08);"><span>374</span></div></div>
+        <div class="cb-pct mono">4.7%</div>
+      </div>
+      <div class="cb-compare">
+        <h4>Multi-Strength Rate by Anchor</h4>
+        <div class="cb-comp-row"><div class="cb-comp-label">3mg</div><div class="cb-comp-val" style="color:var(--text-dim);">23.7%</div></div>
+        <div class="cb-comp-row"><div class="cb-comp-label" style="color:var(--fre-red);">6mg</div><div class="cb-comp-val" style="color:var(--fre-red);">22.5%</div></div>
+        <div class="cb-comp-row"><div class="cb-comp-label">9mg</div><div class="cb-comp-val" style="color:var(--text-dim);">23.3%</div></div>
+        <div class="cb-comp-row"><div class="cb-comp-label">12mg</div><div class="cb-comp-val" style="color:var(--text-dim);">21.9%</div></div>
+        <div class="cb-comp-row"><div class="cb-comp-label">15mg</div><div class="cb-comp-val" style="color:var(--text-dim);">11.2%</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="insight-box">
+    <p>6mg buyers are <strong>not stepping down from 15mg</strong> — only 5.1% of 6mg orders also contain 15mg. The #1 pairing is <strong>9mg</strong> (11.6%), suggesting lateral exploration, not a migration path. And 15mg buyers are the most isolated — only 11.2% ever mix strengths, vs ~23% for every other tier.</p>
+  </div>
+  <div class="source-bar">Source: FRE Shopify DTC | Order-level line item export, Jan 1 – Apr 1, 2026 | 7,976 orders containing 6mg variant</div>
+</div>
+
+<!-- ==================== PANEL 4: TRIAL / ACQUISITION ==================== -->
+<div class="panel trial">
+  <div class="section-title">Question 3 · Acquisition</div>
+  <div class="section-headline">Is 6mg a Trial Magnet?</div>
+  <p class="section-sub">New customer acquisition rate by strength — and the March acceleration</p>
+  <div class="trial-grid">
+    <div class="trial-card">
+      <div class="dual-source"><span class="badge badge-dtc">Shopify DTC</span><h3>New Customer % by Strength</h3></div>
+      <div class="trial-kpi">
+        <div class="trial-kpi-item" style="border:1px solid rgba(228,0,50,0.2);">
+          <div class="n mono" style="color:var(--fre-red);">24.6%</div>
+          <div class="l">6mg New Rate</div>
+        </div>
+        <div class="trial-kpi-item">
+          <div class="n mono">22.1%</div>
+          <div class="l">Store Average</div>
+        </div>
+        <div class="trial-kpi-item">
+          <div class="n mono" style="color:var(--lush);">32.2%</div>
+          <div class="l">3mg (Highest)</div>
+        </div>
+      </div>
+      <div style="font-size:13px; color:var(--text-dim); margin-bottom:12px;">New customer rate by strength:</div>
+      <div class="ret-row"><div class="ret-label" style="color:var(--lush);">3mg</div><div class="ret-track"><div class="ret-fill" style="width:32.2%; background:var(--lush); opacity:0.6;"><span style="color:#0a0e1a;">32.2%</span></div></div><div class="ret-val">+10.1pp</div></div>
+      <div class="ret-row"><div class="ret-label" style="color:var(--fre-red);">6mg</div><div class="ret-track"><div class="ret-fill" style="width:24.6%; background:var(--fre-red); opacity:0.8;"><span>24.6%</span></div></div><div class="ret-val">+2.5pp</div></div>
+      <div class="ret-row"><div class="ret-label">15mg</div><div class="ret-track"><div class="ret-fill" style="width:23.2%; background:rgba(255,255,255,0.12);"><span>23.2%</span></div></div><div class="ret-val">+1.1pp</div></div>
+      <div class="ret-row"><div class="ret-label">9mg</div><div class="ret-track"><div class="ret-fill" style="width:21.0%; background:rgba(255,255,255,0.08);"><span>21.0%</span></div></div><div class="ret-val">-1.1pp</div></div>
+      <div class="ret-row"><div class="ret-label">12mg</div><div class="ret-track"><div class="ret-fill" style="width:18.7%; background:rgba(255,255,255,0.06);"><span>18.7%</span></div></div><div class="ret-val">-3.4pp</div></div>
+    </div>
+    <div class="trial-card">
+      <div class="dual-source"><span class="badge badge-dtc">Shopify DTC</span><h3>6mg Monthly Acquisition Trend</h3></div>
+      <div class="trial-kpi">
+        <div class="trial-kpi-item" style="border:1px solid rgba(228,0,50,0.2);">
+          <div class="n mono" style="color:var(--fre-red);">+63%</div>
+          <div class="l">New Buyer MoM Growth</div>
+        </div>
+        <div class="trial-kpi-item">
+          <div class="n mono">28.1%</div>
+          <div class="l">March New Rate</div>
+        </div>
+      </div>
+      <div class="month-trend">
+        <div style="font-size:13px; color:var(--text-dim); margin-bottom:12px;">New vs Returning in 6mg orders:</div>
+        <div class="month-row">
+          <div class="month-label">Jan</div>
+          <div class="month-bar-track">
+            <div class="month-bar-new" style="width:21.7%;"><span>22%</span></div>
+            <div class="month-bar-ret" style="width:78.3%;"></div>
+          </div>
+          <div class="month-val mono">2,420</div>
+        </div>
+        <div class="month-row">
+          <div class="month-label">Feb</div>
+          <div class="month-bar-track">
+            <div class="month-bar-new" style="width:23.1%;"><span>23%</span></div>
+            <div class="month-bar-ret" style="width:76.9%;"></div>
+          </div>
+          <div class="month-val mono">2,444</div>
+        </div>
+        <div class="month-row">
+          <div class="month-label">Mar</div>
+          <div class="month-bar-track">
+            <div class="month-bar-new" style="width:28.1%;"><span>28%</span></div>
+            <div class="month-bar-ret" style="width:71.9%;"></div>
+          </div>
+          <div class="month-val mono">3,059</div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:20px;">March saw <strong style="color:var(--fre-red);">859 new 6mg buyers</strong> — up from 526 in Jan. Something is pulling new consumers into the 6mg tier specifically.</p>
+    </div>
+  </div>
+  <div class="insight-box">
+    <p>6mg isn't the biggest trial magnet (3mg wins that at 32%), but it's <strong>above average and accelerating fast</strong>. New 6mg buyers jumped 63% from January to March. The combination is rare: <strong>above-average acquisition AND best-in-class retention.</strong> Most strengths are good at one or the other — 6mg is good at both.</p>
+  </div>
+  <div class="source-bar">Source: FRE Shopify DTC | Order export, Jan 1 – Apr 1, 2026 | 7,976 orders containing 6mg, 1,962 new customers</div>
+</div>
+
+<!-- ==================== PANEL 5: DEMOGRAPHICS ==================== -->
+<div class="panel demographics">
+  <div class="section-title">Consumer Profile</div>
+  <div class="section-headline">An Older, More Deliberate Buyer</div>
+  <p class="section-sub">Haypp consumer demographics — 6mg attracts a fundamentally different profile than 15mg</p>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Age Distribution: 6mg vs 15mg</h3>
+      <div class="age-row">
+        <div class="age-label">21–24</div>
+        <div class="age-track"><div class="age-fill-6" style="width:16.5%;"></div><div class="age-fill-15" style="width:31.5%;"></div></div>
+        <div class="age-pct mono" style="color:var(--fre-red);">3.3% <span style="color:var(--text-muted);">vs 6.3%</span></div>
+      </div>
+      <div class="age-row">
+        <div class="age-label">25–34</div>
+        <div class="age-track"><div class="age-fill-6" style="width:90%;"></div><div class="age-fill-15" style="width:100%;"></div></div>
+        <div class="age-pct mono" style="color:var(--fre-red);">28% <span style="color:var(--text-muted);">vs 31%</span></div>
+      </div>
+      <div class="age-row">
+        <div class="age-label">35–44</div>
+        <div class="age-track"><div class="age-fill-6" style="width:100%;"></div><div class="age-fill-15" style="width:95%;"></div></div>
+        <div class="age-pct mono" style="color:var(--fre-red);">36% <span style="color:var(--text-muted);">vs 34%</span></div>
+      </div>
+      <div class="age-row">
+        <div class="age-label">45–54</div>
+        <div class="age-track"><div class="age-fill-6" style="width:60%;"></div><div class="age-fill-15" style="width:47%;"></div></div>
+        <div class="age-pct mono" style="color:var(--fre-red);">22% <span style="color:var(--text-muted);">vs 17%</span></div>
+      </div>
+      <div class="age-row">
+        <div class="age-label">55–64</div>
+        <div class="age-track"><div class="age-fill-6" style="width:25%;"></div><div class="age-fill-15" style="width:24%;"></div></div>
+        <div class="age-pct mono" style="color:var(--fre-red);">9.1% <span style="color:var(--text-muted);">vs 8.4%</span></div>
+      </div>
+      <div class="age-row">
+        <div class="age-label">65+</div>
+        <div class="age-track"><div class="age-fill-6" style="width:6%;"></div><div class="age-fill-15" style="width:9%;"></div></div>
+        <div class="age-pct mono" style="color:var(--fre-red);">2.0% <span style="color:var(--text-muted);">vs 3.2%</span></div>
+      </div>
+      <div style="display:flex; gap:16px; margin-top:16px;">
+        <div class="fl-item"><div class="fl-dot" style="background:var(--fre-red);"></div> 6mg</div>
+        <div class="fl-item"><div class="fl-dot" style="background:rgba(255,255,255,0.15);"></div> 15mg</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <h3>Key Contrasts</h3>
+      <div class="demo-kpi-row">
+        <div class="demo-kpi" style="border:1px solid rgba(228,0,50,0.2);">
+          <div class="val mono" style="color:var(--fre-red);">35–44</div>
+          <div class="label">6mg Peak Age</div>
+        </div>
+        <div class="demo-kpi">
+          <div class="val mono">25–34</div>
+          <div class="label">15mg Peak Age</div>
+        </div>
+      </div>
+      <div class="demo-kpi-row">
+        <div class="demo-kpi" style="border:1px solid rgba(228,0,50,0.2);">
+          <div class="val mono" style="color:var(--fre-red);">68%</div>
+          <div class="label">6mg Buyers 35+</div>
+        </div>
+        <div class="demo-kpi">
+          <div class="val mono">62%</div>
+          <div class="label">15mg Buyers 35+</div>
+        </div>
+      </div>
+      <div class="demo-kpi-row">
+        <div class="demo-kpi" style="border:1px solid rgba(228,0,50,0.2);">
+          <div class="val mono" style="color:var(--fre-red);">3.3%</div>
+          <div class="label">6mg Age 21–24</div>
+        </div>
+        <div class="demo-kpi">
+          <div class="val mono">6.3%</div>
+          <div class="label">15mg Age 21–24</div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:var(--text-dim); margin-top:16px; line-height:1.6;">6mg has <strong style="color:var(--fre-red);">half</strong> the youngest-cohort share. These are mature, deliberate buyers — likely former smokers or step-down users.</p>
+    </div>
+  </div>
+  <div class="source-bar">Source: Haypp E-Commerce (FREIA) | Consumer Demographics | Unit volume by age group × strength, all-time cumulative</div>
+</div>
+
+<!-- ==================== PANEL 6: FLAVOR EVOLUTION ==================== -->
+<div class="panel flavor-evo">
+  <div class="section-title">Portfolio Expansion</div>
+  <div class="section-headline">From Mint-Only to Three Flavors in 6 Months</div>
+  <p class="section-sub">Haypp: 6mg flavor mix evolution — showing how expansion tripled volume</p>
+  <div class="flavor-timeline">
+    <div class="fl-row"><div class="fl-month mono">Oct '24</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:100%;">100% Mint</div></div><div class="fl-vol mono">43,447</div></div>
+    <div class="fl-row"><div class="fl-month mono">Jan '25</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:100%;">100%</div></div><div class="fl-vol mono">6,039</div></div>
+    <div class="fl-row"><div class="fl-month mono">Jun '25</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:95%;">95%</div><div class="fl-seg unflav-seg" style="width:5%;"></div></div><div class="fl-vol mono">4,353</div></div>
+    <div class="fl-row"><div class="fl-month mono">Aug '25</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:82%;">82%</div><div class="fl-seg fruit-seg" style="width:8%;"></div><div class="fl-seg unflav-seg" style="width:10%;"></div></div><div class="fl-vol mono">4,721</div></div>
+    <div class="fl-row"><div class="fl-month mono">Oct '25</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:75%;">75%</div><div class="fl-seg fruit-seg" style="width:18%;">18%</div><div class="fl-seg unflav-seg" style="width:7%;"></div></div><div class="fl-vol mono">11,693</div></div>
+    <div class="fl-row"><div class="fl-month mono">Nov '25</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:55%;">55%</div><div class="fl-seg fruit-seg" style="width:38%;">38%</div><div class="fl-seg unflav-seg" style="width:7%;"></div></div><div class="fl-vol mono">17,551</div></div>
+    <div class="fl-row"><div class="fl-month mono">Jan '26</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:65%;">65%</div><div class="fl-seg fruit-seg" style="width:28%;">28%</div><div class="fl-seg unflav-seg" style="width:7%;"></div></div><div class="fl-vol mono">20,736</div></div>
+    <div class="fl-row"><div class="fl-month mono">Mar '26</div><div class="fl-stack"><div class="fl-seg mint-seg" style="width:58%;">58%</div><div class="fl-seg fruit-seg" style="width:30%;">30%</div><div class="fl-seg unflav-seg" style="width:12%;"></div></div><div class="fl-vol mono">9,324</div></div>
+  </div>
+  <div class="fl-legend">
+    <div class="fl-item"><div class="fl-dot" style="background:var(--mint);"></div> Mint</div>
+    <div class="fl-item"><div class="fl-dot" style="background:var(--fre-red);"></div> Fruit</div>
+    <div class="fl-item"><div class="fl-dot" style="background:#6366f1;"></div> Unflavored</div>
+  </div>
+
+  <!-- DTC Flavor Breakdown -->
+  <div class="dtc-flavors">
+    <div class="dual-source" style="justify-content:center; margin-bottom:16px;"><span class="badge badge-dtc">Shopify DTC</span><span style="font-size:14px; font-weight:600; color:var(--text-dim);">Top Flavors in 6mg Orders (Q1 2026)</span></div>
+    <div class="dtc-flav-grid">
+      <div class="dtc-flav-card" style="border-color:var(--wintergreen);">
+        <div class="name" style="color:var(--wintergreen);">Wintergreen</div>
+        <div class="pct mono" style="color:var(--wintergreen);">49.5%</div>
+        <div class="sub">of 6mg orders</div>
+      </div>
+      <div class="dtc-flav-card" style="border-color:var(--mint);">
+        <div class="name" style="color:var(--mint);">Mint</div>
+        <div class="pct mono" style="color:var(--mint);">46.5%</div>
+        <div class="sub">of 6mg orders</div>
+      </div>
+      <div class="dtc-flav-card" style="border-color:var(--watermelon);">
+        <div class="name" style="color:var(--watermelon);">Watermelon</div>
+        <div class="pct mono" style="color:var(--watermelon);">24.7%</div>
+        <div class="sub">of 6mg orders</div>
+      </div>
+      <div class="dtc-flav-card" style="border-color:var(--lush);">
+        <div class="name" style="color:var(--lush);">Lush</div>
+        <div class="pct mono" style="color:var(--lush);">24.5%</div>
+        <div class="sub">of 6mg orders</div>
+      </div>
+      <div class="dtc-flav-card" style="border-color:var(--sweet);">
+        <div class="name" style="color:var(--sweet);">Sweet</div>
+        <div class="pct mono" style="color:var(--sweet);">10.7%</div>
+        <div class="sub">of 6mg orders</div>
+      </div>
+      <div class="dtc-flav-card" style="border-color:var(--original);">
+        <div class="name" style="color:var(--original);">Original</div>
+        <div class="pct mono" style="color:var(--original);">10.3%</div>
+        <div class="sub">of 6mg orders</div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--text-muted); text-align:center; margin-top:12px;">Percentages exceed 100% — orders contain multiple flavors. 43.8% of 6mg orders include 2+ products.</p>
+  </div>
+  <div class="insight-box">
+    <p>On Haypp, adding Fruit and Unflavored didn't cannibalize Mint — it <strong>tripled total 6mg volume</strong> from ~5K to 20K+. On DTC, <strong style="color:var(--wintergreen);">Wintergreen</strong> leads over Mint (49.5% vs 46.5%), and <strong style="color:var(--watermelon);">Watermelon</strong> + <strong style="color:var(--lush);">Lush</strong> each appear in ~25% of 6mg orders. The flavor expansion play is working — and there's room for more.</p>
+  </div>
+  <div class="source-bar">Haypp: FREIA SKU Transactions, monthly units by flavour × strength, Oct 2024 – Mar 2026 | Shopify: Order line items, Jan–Apr 2026, product co-occurrence in 6mg orders</div>
+</div>
+
+<!-- ==================== PANEL 7: GROWTH ==================== -->
+<div class="panel growth-panel">
+  <div class="section-title">Momentum</div>
+  <div class="section-headline">Only Two Strengths Are Growing on Haypp</div>
+  <p class="section-sub">Q1 2026 vs Q4 2025 — 3-month rolling unit volume comparison</p>
+  <div class="growth-bars">
+    <div class="growth-col">
+      <div class="growth-bar-wrapper">
+        <div class="growth-bar" style="height:130px; background:linear-gradient(180deg, rgba(228,0,50,0.5), rgba(228,0,50,0.15));">
+          <div class="val mono" style="color:rgba(228,0,50,0.7);">+41%</div>
+        </div>
+      </div>
+      <div class="growth-mg mono">3mg</div>
+    </div>
+    <div class="growth-col">
+      <div class="growth-bar-wrapper">
+        <div class="growth-bar" style="height:100px; background:linear-gradient(180deg, var(--fre-red), #990020);">
+          <div class="val mono" style="color:var(--fre-red);">+32%</div>
+        </div>
+      </div>
+      <div class="growth-mg mono" style="color:var(--fre-red);">6mg</div>
+    </div>
+    <div class="growth-col">
+      <div class="growth-bar-wrapper">
+        <div class="growth-bar" style="height:80px; background:linear-gradient(180deg, rgba(255,100,100,0.12), rgba(255,100,100,0.04));">
+          <div class="val mono" style="color:rgba(255,100,100,0.5);">-25%</div>
+        </div>
+      </div>
+      <div class="growth-mg mono">9mg</div>
+    </div>
+    <div class="growth-col">
+      <div class="growth-bar-wrapper">
+        <div class="growth-bar" style="height:110px; background:linear-gradient(180deg, rgba(255,100,100,0.12), rgba(255,100,100,0.04));">
+          <div class="val mono" style="color:rgba(255,100,100,0.5);">-35%</div>
+        </div>
+      </div>
+      <div class="growth-mg mono">12mg</div>
+    </div>
+    <div class="growth-col">
+      <div class="growth-bar-wrapper">
+        <div class="growth-bar" style="height:12px; background:linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));">
+          <div class="val mono" style="color:var(--text-muted);">+3%</div>
+        </div>
+      </div>
+      <div class="growth-mg mono">15mg</div>
+    </div>
+  </div>
+  <p class="growth-note">9mg and 12mg are in steep decline. 15mg is flat. The growth engine has shifted to the low end — and <strong style="color:var(--fre-red);">6mg is the largest absolute gainer</strong> at +11,525 units (36K → 48K).</p>
+  <div class="source-bar">Source: Haypp E-Commerce (FREIA) | FRE SKU Transactions | Q1 2026 (Jan–Mar) vs Q4 2025 (Oct–Dec) unit volume by strength</div>
+</div>
+
+<!-- ==================== PANEL 8: AOV ==================== -->
+<div class="panel aov-panel">
+  <div class="section-title">Revenue Quality</div>
+  <div class="section-headline">6mg Returning Buyers Have the Highest AOV</div>
+  <p class="section-sub">Shopify DTC — Average Order Value by customer type</p>
+  <div class="aov-grid">
+    <div class="aov-card">
+      <div class="big mono" style="color:var(--text-dim);">$63</div>
+      <div class="mid">New 6mg Buyer</div>
+      <div class="sub">1,962 orders</div>
+    </div>
+    <div class="aov-card highlight">
+      <div class="big mono" style="color:var(--fre-red);">$89</div>
+      <div class="mid" style="color:var(--fre-red);">Returning 6mg Buyer</div>
+      <div class="sub">6,014 orders · +42% vs new</div>
+    </div>
+    <div class="aov-card">
+      <div class="big mono" style="color:var(--text-dim);">$78</div>
+      <div class="mid">Returning 15mg Buyer</div>
+      <div class="sub">14,771 orders</div>
+    </div>
+  </div>
+  <div class="insight-box" style="margin-top:40px;">
+    <p>Returning 6mg buyers spend <strong>$89 per order</strong> — that's <strong>14% more than returning 15mg buyers</strong> ($78). The 6mg loyalist isn't just stickier, they're <strong>more valuable per transaction.</strong> With 43.8% of 6mg orders containing 2+ products, they're exploring the full flavor line and building bigger baskets.</p>
+  </div>
+  <div class="source-bar">Source: FRE Shopify DTC | Order export, Jan 1 – Apr 1, 2026 | AOV calculated as total sales ÷ unique orders by new/returning × strength</div>
+</div>
+
+<!-- ==================== PANEL 9: PUNCHLINE ==================== -->
+<div class="panel punchline">
+  <div class="section-title">The Takeaway</div>
+  <h2>6mg isn't the <em>entry-level</em> SKU.<br>It's the <em>retention</em> engine.</h2>
+  <div class="punch-grid">
+    <div class="punch-card">
+      <div class="n mono">90.4%</div>
+      <div class="l">Repeat Rate</div>
+      <div class="src">Haypp — #1 of all strengths</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">$89</div>
+      <div class="l">Returning AOV</div>
+      <div class="src">DTC — highest of any strength</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">77.5%</div>
+      <div class="l">6mg-Only Orders</div>
+      <div class="src">DTC — not a step-down SKU</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">3×</div>
+      <div class="l">Volume After Flavors</div>
+      <div class="src">Haypp — 5K → 20K/mo</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">+32%</div>
+      <div class="l">QoQ Growth</div>
+      <div class="src">Haypp — Q1 vs Q4</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">35–44</div>
+      <div class="l">Peak Age Group</div>
+      <div class="src">Haypp — oldest buyer base</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">+63%</div>
+      <div class="l">New Buyer Growth</div>
+      <div class="src">DTC — Jan → Mar '26</div>
+    </div>
+    <div class="punch-card">
+      <div class="n mono">6</div>
+      <div class="l">Active Flavors</div>
+      <div class="src">DTC — full line available</div>
+    </div>
+  </div>
+  <p class="punch-action">
+    The 6mg consumer is older, stickier, more loyal, and more valuable per transaction than any other strength in the FRE portfolio. They don't migrate from 15mg — they discover 6mg independently and they stay. Flavor expansion tripled the addressable market in 6 months without cannibalizing Mint. <strong>The play: keep expanding flavors at 6mg, lean into the 35+ demographic, and ride the retention flywheel.</strong>
+  </p>
+  <div class="source-bar">
+    Sources: Haypp E-Commerce (FREIA), Oct 2024 – Mar 2026, 413 SKU records, consumer demographics, product explorer<br>
+    FRE Shopify DTC, Q1 2026 (Jan 1 – Apr 1), 46,498 orders, 128,719 line items, new/returning customer segmentation
+  </div>
+</div>
+
+</body>
+</html>

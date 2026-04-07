@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noon — Brand One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A2744;
+    --deep-navy: #0F1A2E;
+    --amber: #C4952A;
+    --cream: #F8F4ED;
+    --warm-white: #FFFDF8;
+    --muted: #7A8BA0;
+    --terracotta: #C87941;
+    --dusty-rose: #C4A0A0;
+    --soft-sage: #9DB09A;
+    --warm-sand: #D4C4A8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .heading { font-family: 'Playfair Display', serif; font-weight: 300; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--deep-navy);
+    color: var(--cream);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(196,149,42,0.12), transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(200,121,65,0.08), transparent 50%);
+  }
+  .hero-logo {
+    display: none;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: 72px;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--amber);
+    position: relative;
+  }
+  .hero .confidential {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(248,244,237,0.25);
+  }
+
+  /* ── Sections ── */
+  section { padding: 60px 40px; }
+  .section-navy { background: var(--navy); color: var(--cream); }
+  .section-deep { background: var(--deep-navy); color: var(--cream); }
+  .section-cream { background: var(--cream); }
+  .section-warm { background: var(--warm-white); }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .max-w { max-width: 960px; margin: 0 auto; }
+  .max-w-lg { max-width: 1200px; margin: 0 auto; }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--amber);
+    margin: 0 auto 40px;
+    opacity: 0.4;
+  }
+
+  /* ── Narrative ── */
+  .narrative {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.8;
+    font-weight: 300;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+
+  /* ── Color Palette ── */
+  .palette {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .swatch { text-align: center; }
+  .swatch-circle {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .swatch-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: lowercase;
+    color: var(--muted);
+  }
+  .swatch-hex {
+    font-size: 10px;
+    color: var(--amber);
+    font-family: 'Inter', monospace;
+    margin-top: 2px;
+  }
+
+  /* ── Flavors ── */
+  .flavors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .flavor-card {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: 12px;
+    background: rgba(248,244,237,0.4);
+    border: 1px solid rgba(196,149,42,0.15);
+  }
+  .flavor-dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .flavor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .flavor-desc {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Persona ── */
+  .persona-box {
+    background: var(--deep-navy);
+    color: var(--cream);
+    border-radius: 16px;
+    padding: 48px;
+    max-width: 720px;
+    margin: 0 auto;
+    border: 1px solid rgba(196,149,42,0.15);
+  }
+  .persona-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+  .persona-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .persona-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(248,244,237,0.8);
+  }
+
+  /* ── Packaging Grid ── */
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .pkg-header {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    text-align: center;
+    padding: 8px 0;
+    font-weight: 500;
+  }
+  .pkg-row-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--navy);
+    padding-top: 60px;
+    text-align: right;
+    padding-right: 16px;
+  }
+  .pkg-cell {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--warm-white);
+    border: 1px solid rgba(26,39,68,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pkg-cell:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(15,26,46,0.12);
+  }
+  .pkg-cell img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .pkg-cell-label {
+    padding: 12px 16px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .pkg-empty {
+    border-radius: 12px;
+    background: var(--warm-white);
+    border: 2px dashed rgba(26,39,68,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Mood Board ── */
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .mood-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+  }
+  .mood-grid img:hover { transform: scale(1.03); }
+  .mood-grid .tall { grid-row: span 2; aspect-ratio: auto; height: 100%; }
+
+  /* ── RTBs ── */
+  .rtb-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .rtb-item { text-align: center; }
+  .rtb-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .rtb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .rtb-desc {
+    font-size: 13px;
+    color: rgba(248,244,237,0.6);
+    line-height: 1.6;
+  }
+
+  /* ── Voice ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .voice-col h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .voice-col.yes h3 { color: var(--soft-sage); }
+  .voice-col.no h3 { color: var(--terracotta); }
+  .voice-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin: 4px;
+  }
+  .voice-col.yes .voice-tag {
+    background: rgba(157,176,154,0.12);
+    color: var(--soft-sage);
+    border: 1px solid rgba(157,176,154,0.25);
+  }
+  .voice-col.no .voice-tag {
+    background: rgba(200,121,65,0.08);
+    color: var(--terracotta);
+    border: 1px solid rgba(200,121,65,0.2);
+    text-decoration: line-through;
+  }
+
+  /* ── Accessories ── */
+  .acc-list { max-width: 600px; margin: 0 auto; }
+  .acc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(196,149,42,0.15);
+  }
+  .acc-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cream);
+  }
+  .acc-price {
+    font-size: 14px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Details ── */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .detail-card {
+    text-align: center;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(196,149,42,0.15);
+    background: rgba(248,244,237,0.3);
+  }
+  .detail-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .detail-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--deep-navy);
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <span class="confidential">confidential — project xx</span>
+    <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/logo-light.png" class="hero-logo" alt="Noon logo">
+    <h1 class="heading">Noon</h1>
+    <p class="tagline">A Gentle Reset</p>
+  </div>
+
+  <!-- ═══ NARRATIVE ═══ -->
+  <section class="section-cream">
+    <div class="section-label">brand narrative</div>
+    <div class="divider"></div>
+    <p class="narrative">
+      By midday, the morning's clarity starts to blur. Noon is the fulcrum — the moment between
+      doing and being. This brand makes space for the pause. Not to escape, but to return to centre.
+    </p>
+    <p class="narrative" style="margin-top: 20px; font-size: 18px; color: var(--muted);">
+      She isn't looking for intensity. She's looking for the feeling of coming home to herself
+      for just a moment — a mindful micro-ritual that recalibrates, not stimulates.
+    </p>
+  </section>
+
+  <!-- ═══ COLOR PALETTE ═══ -->
+  <section class="section-warm">
+    <div class="section-label">color palette</div>
+    <div class="section-title heading">the noon world</div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #1A2744;"></div>
+        <div class="swatch-label">navy</div>
+        <div class="swatch-hex">#1A2744</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #C4952A;"></div>
+        <div class="swatch-label">amber</div>
+        <div class="swatch-hex">#C4952A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #C87941;"></div>
+        <div class="swatch-label">terracotta</div>
+        <div class="swatch-hex">#C87941</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #F8F4ED;"></div>
+        <div class="swatch-label">cream</div>
+        <div class="swatch-hex">#F8F4ED</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #D4C4A8;"></div>
+        <div class="swatch-label">warm sand</div>
+        <div class="swatch-hex">#D4C4A8</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #9DB09A;"></div>
+        <div class="swatch-label">soft sage</div>
+        <div class="swatch-hex">#9DB09A</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FLAVORS ═══ -->
+  <section class="section-navy">
+    <div class="section-label">flavors</div>
+    <div class="section-title heading" style="color: var(--cream);">the collection</div>
+    <div class="flavors-grid">
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: linear-gradient(135deg, #E8D5B7, #C4952A);"></div>
+        <div class="flavor-name">Chamomile Honey</div>
+        <div class="flavor-desc">Warm & soothing</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: linear-gradient(135deg, #9DB09A, #6B8C6B);"></div>
+        <div class="flavor-name">Garden Mint</div>
+        <div class="flavor-desc">Fresh & grounding</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: linear-gradient(135deg, #D4C4A8, #B8A88C);"></div>
+        <div class="flavor-name">Vanilla Chai</div>
+        <div class="flavor-desc">Spiced & warm</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONSUMER PERSONA ═══ -->
+  <section class="section-cream">
+    <div class="section-label">consumer</div>
+    <div class="section-title heading">who she is</div>
+    <div class="persona-box">
+      <div class="persona-label">Persona — The Intentional Pauser</div>
+      <div class="persona-title heading">She treats small moments with the same intention she brings to everything else.</div>
+      <p class="persona-text">
+        She journals, she's into breathwork or yoga, and she thinks of nicotine as a mindful choice,
+        not a habit. Noon doesn't ask her to slow down — it meets her where she already is.
+        She's drawn to wellness-adjacent brands but rejects anything that feels performative.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ MOOD BOARD ═══ -->
+  <section class="section-warm">
+    <div class="section-label">mood board</div>
+    <div class="section-title heading">visual world</div>
+    <div class="mood-grid">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/hero.jpeg" alt="Noon Hero" class="tall">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/mood.png" alt="Noon Mood">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/concept-a.jpeg" alt="Noon Concept A">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/concept-b.jpeg" alt="Noon Concept B">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/hero-wide.jpeg" alt="Noon Wide">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/noon/clamshell-case.jpg" alt="Noon Clamshell">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/noon/swivel-case.png" alt="Noon Swivel Case">
+    </div>
+  </section>
+
+  <!-- ═══ PACKAGING — A/B/C GRID ═══ -->
+  <section class="section-cream">
+    <div class="section-label">packaging concepts</div>
+    <div class="section-title heading">option exploration</div>
+    <div class="max-w-lg">
+      <div class="pkg-grid">
+        <!-- Header row -->
+        <div></div>
+        <div class="pkg-header">Option A</div>
+        <div class="pkg-header">Option B</div>
+        <div class="pkg-header">Option C</div>
+
+        <!-- Cans row -->
+        <div class="pkg-row-label">The Puck<br><span style="font-family: 'Inter'; font-size: 11px; color: var(--muted);">15ct frosted tin</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/lineup.jpeg" alt="Can Option A">
+          <div class="pkg-cell-label">Lineup — full collection</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/product.png" alt="Can Option B">
+          <div class="pkg-cell-label">Product shot — tin detail</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/lineup-alt.png" alt="Can Option C">
+          <div class="pkg-cell-label">Alt lineup — extended view</div>
+        </div>
+
+        <!-- Mega Pack row -->
+        <div class="pkg-row-label">Mega Pack<br><span style="font-family: 'Inter'; font-size: 11px; color: var(--muted);">100ct bag</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/packaging.jpeg" alt="Mega Pack">
+          <div class="pkg-cell-label">Primary packaging concept</div>
+        </div>
+        <div class="pkg-empty">
+          <span>Option B — TBD</span>
+        </div>
+        <div class="pkg-empty">
+          <span>Option C — TBD</span>
+        </div>
+
+        <!-- Accessories row -->
+        <div class="pkg-row-label">Accessories<br><span style="font-family: 'Inter'; font-size: 11px; color: var(--muted);">carry + display</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/noon/accessory.png" alt="Accessory Option A">
+          <div class="pkg-cell-label">Frosted navy disc + amber keychain</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/noon/swivel-case.png" alt="Accessory Option B">
+          <div class="pkg-cell-label">Swivel carry case</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/noon/clamshell-case.jpg" alt="Accessory Option C">
+          <div class="pkg-cell-label">Clamshell compact case</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCT DETAILS ═══ -->
+  <section class="section-deep">
+    <div class="section-label">product specs</div>
+    <div class="section-title heading" style="color: var(--cream);">the system</div>
+    <div class="details-grid">
+      <div class="detail-card">
+        <div class="detail-label">Format</div>
+        <div class="detail-value heading">15ct Frosted Tin</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-label">Mega Pack</div>
+        <div class="detail-value heading">100ct Bag</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-label">Typography</div>
+        <div class="detail-value heading">Playfair Display</div>
+      </div>
+    </div>
+    <div style="margin-top: 40px;">
+      <div class="acc-list">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div class="section-label">accessories</div>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Frosted navy disc keychain</span>
+          <span class="acc-price">$12</span>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Amber swivel-case</span>
+          <span class="acc-price">$28</span>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Clamshell compact</span>
+          <span class="acc-price">$42</span>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Navy accessories bundle</span>
+          <span class="acc-price">$75</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RTBs ═══ -->
+  <section class="section-navy">
+    <div class="section-label">reasons to believe</div>
+    <div class="section-title heading" style="color: var(--cream);">why noon</div>
+    <div class="rtb-list">
+      <div class="rtb-item">
+        <div class="rtb-number">01</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Mindful Positioning</div>
+        <div class="rtb-desc">Wellness-adjacent without the cringe — meets her where she is</div>
+      </div>
+      <div class="rtb-item">
+        <div class="rtb-number">02</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Warm Sensory Profile</div>
+        <div class="rtb-desc">Chamomile, vanilla, garden — comforting rather than sharp</div>
+      </div>
+      <div class="rtb-item">
+        <div class="rtb-number">03</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Daily Ritual Integration</div>
+        <div class="rtb-desc">Designed around her existing routines, not against them</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRAND VOICE ═══ -->
+  <section class="section-cream">
+    <div class="section-label">brand voice</div>
+    <div class="section-title heading">how we speak</div>
+    <div class="voice-grid">
+      <div class="voice-col yes">
+        <h3 class="heading">we say</h3>
+        <span class="voice-tag">return to centre</span>
+        <span class="voice-tag">gentle reset</span>
+        <span class="voice-tag">intentional</span>
+        <span class="voice-tag">mindful</span>
+        <span class="voice-tag">warmth</span>
+      </div>
+      <div class="voice-col no">
+        <h3 class="heading">we never say</h3>
+        <span class="voice-tag">buzz</span>
+        <span class="voice-tag">hit</span>
+        <span class="voice-tag">rush</span>
+        <span class="voice-tag">energy boost</span>
+        <span class="voice-tag">nicotine fix</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    Project XX — Turning Point Brands — Confidential — April 2026
+  </div>
+
+</body>
+</html>

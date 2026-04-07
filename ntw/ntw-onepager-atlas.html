@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Brand One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #5C1A24;
+    --deep-burgundy: #3A1018;
+    --graphite: #2A2D32;
+    --cream: #FBF8F2;
+    --warm-gray: #F0F2F4;
+    --gold: #8B7355;
+    --muted: #6B6B6B;
+    --steel: #5A6068;
+    --copper: #B87333;
+    --ink: #1A1C20;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--graphite);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .heading { font-family: 'Space Grotesk', sans-serif; font-weight: 300; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      linear-gradient(135deg, rgba(92,26,36,0.2) 0%, transparent 40%),
+      linear-gradient(315deg, rgba(139,115,85,0.1) 0%, transparent 40%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255,255,255,0.015) 80px,
+      rgba(255,255,255,0.015) 81px
+    );
+  }
+  .hero-logo {
+    display: none;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 72px;
+    letter-spacing: 0.25em;
+    text-transform: lowercase;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .tagline {
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    position: relative;
+    z-index: 1;
+  }
+  .hero .confidential {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(251,248,242,0.25);
+    z-index: 1;
+  }
+
+  /* ── Sections ── */
+  section { padding: 60px 40px; }
+  .section-ink { background: var(--ink); color: var(--cream); }
+  .section-graphite { background: var(--graphite); color: var(--cream); }
+  .section-cream { background: var(--cream); }
+  .section-warm { background: var(--warm-gray); }
+  .section-burgundy { background: var(--burgundy); color: var(--cream); }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .max-w { max-width: 960px; margin: 0 auto; }
+  .max-w-lg { max-width: 1200px; margin: 0 auto; }
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--burgundy);
+    margin: 0 auto 40px;
+  }
+
+  /* ── Narrative ── */
+  .narrative {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    line-height: 1.8;
+    font-weight: 300;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ── Color Palette ── */
+  .palette {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .swatch { text-align: center; }
+  .swatch-circle {
+    width: 72px; height: 72px;
+    border-radius: 8px;
+    margin: 0 auto 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .swatch-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .swatch-hex {
+    font-size: 10px;
+    color: var(--gold);
+    font-family: 'Space Grotesk', monospace;
+    margin-top: 2px;
+  }
+
+  /* ── Flavors ── */
+  .flavors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .flavor-card {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: 8px;
+    background: rgba(251,248,242,0.06);
+    border: 1px solid rgba(139,115,85,0.15);
+  }
+  .flavor-dot {
+    width: 48px; height: 48px;
+    border-radius: 8px;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .flavor-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .flavor-desc {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Persona ── */
+  .persona-box {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 48px;
+    max-width: 720px;
+    margin: 0 auto;
+    border-left: 3px solid var(--burgundy);
+  }
+  .persona-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .persona-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .persona-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(251,248,242,0.8);
+  }
+
+  /* ── Packaging Grid ── */
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: 120px repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .pkg-header {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    padding: 8px 0;
+    font-weight: 500;
+  }
+  .pkg-row-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--graphite);
+    padding-top: 60px;
+    text-align: right;
+    padding-right: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pkg-cell {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--warm-gray);
+    border: 1px solid rgba(42,45,50,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pkg-cell:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(26,28,32,0.15);
+  }
+  .pkg-cell img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+  .pkg-cell-label {
+    padding: 12px 16px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .pkg-empty {
+    border-radius: 8px;
+    background: var(--warm-gray);
+    border: 2px dashed rgba(42,45,50,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Mood Board ── */
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .mood-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.4s ease;
+  }
+  .mood-grid img:hover { transform: scale(1.03); }
+  .mood-grid .tall { grid-row: span 2; aspect-ratio: auto; height: 100%; }
+
+  /* ── RTBs ── */
+  .rtb-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .rtb-item { text-align: center; }
+  .rtb-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--burgundy);
+    margin-bottom: 8px;
+  }
+  .rtb-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .rtb-desc {
+    font-size: 13px;
+    color: rgba(251,248,242,0.6);
+    line-height: 1.6;
+  }
+
+  /* ── Voice ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .voice-col h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .voice-col.yes h3 { color: var(--gold); }
+  .voice-col.no h3 { color: var(--burgundy); }
+  .voice-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin: 4px;
+    text-transform: uppercase;
+  }
+  .voice-col.yes .voice-tag {
+    background: rgba(139,115,85,0.1);
+    color: var(--gold);
+    border: 1px solid rgba(139,115,85,0.25);
+  }
+  .voice-col.no .voice-tag {
+    background: rgba(92,26,36,0.06);
+    color: var(--burgundy);
+    border: 1px solid rgba(92,26,36,0.2);
+    text-decoration: line-through;
+  }
+
+  /* ── Accessories ── */
+  .acc-list { max-width: 600px; margin: 0 auto; }
+  .acc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(139,115,85,0.15);
+  }
+  .acc-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .acc-price {
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Details ── */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .detail-card {
+    text-align: center;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(139,115,85,0.15);
+    background: rgba(251,248,242,0.04);
+  }
+  .detail-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .detail-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--ink);
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <span class="confidential">confidential — project xx</span>
+    <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/logo-light.png" class="hero-logo" alt="Atlas logo">
+    <h1 class="heading">atlas</h1>
+    <p class="tagline">Reorient &amp; Reset</p>
+  </div>
+
+  <!-- ═══ NARRATIVE ═══ -->
+  <section class="section-cream">
+    <div class="section-label">brand narrative</div>
+    <div class="divider"></div>
+    <p class="narrative">
+      An atlas isn't a map — it's an entire system of orientation. Atlas is built for women who
+      navigate complexity with clarity. She doesn't need to escape her world; she needs a reliable
+      touchstone to reorient within it.
+    </p>
+    <p class="narrative" style="margin-top: 20px; font-size: 18px; color: var(--muted);">
+      Atlas is modern EDC — an everyday carry companion designed for the woman who plans, moves,
+      and adapts. Structured, trustworthy, engineered for real life.
+    </p>
+  </section>
+
+  <!-- ═══ COLOR PALETTE ═══ -->
+  <section class="section-warm">
+    <div class="section-label">color palette</div>
+    <div class="section-title heading">THE ATLAS SYSTEM</div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #5C1A24; border-radius: 8px;"></div>
+        <div class="swatch-label">burgundy</div>
+        <div class="swatch-hex">#5C1A24</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #2A2D32; border-radius: 8px;"></div>
+        <div class="swatch-label">graphite</div>
+        <div class="swatch-hex">#2A2D32</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #8B7355; border-radius: 8px;"></div>
+        <div class="swatch-label">gold</div>
+        <div class="swatch-hex">#8B7355</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #FBF8F2; border-radius: 8px;"></div>
+        <div class="swatch-label">cream</div>
+        <div class="swatch-hex">#FBF8F2</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #B87333; border-radius: 8px;"></div>
+        <div class="swatch-label">copper</div>
+        <div class="swatch-hex">#B87333</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #5A6068; border-radius: 8px;"></div>
+        <div class="swatch-label">steel</div>
+        <div class="swatch-hex">#5A6068</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FLAVORS ═══ -->
+  <section class="section-graphite">
+    <div class="section-label">flavors</div>
+    <div class="section-title heading" style="color: var(--cream);">THE COLLECTION</div>
+    <div class="flavors-grid">
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: linear-gradient(135deg, #B87333, #8B5A2B); border-radius: 8px;"></div>
+        <div class="flavor-name">Espresso</div>
+        <div class="flavor-desc">Structured & bold</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: linear-gradient(135deg, #5A8C5A, #3D6B3D); border-radius: 8px;"></div>
+        <div class="flavor-name">Eucalyptus</div>
+        <div class="flavor-desc">Clean & architectural</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-dot" style="background: linear-gradient(135deg, #C4A882, #8B7355); border-radius: 8px;"></div>
+        <div class="flavor-name">Black Cardamom</div>
+        <div class="flavor-desc">Complex & modern</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONSUMER PERSONA ═══ -->
+  <section class="section-cream">
+    <div class="section-label">consumer</div>
+    <div class="section-title heading">WHO SHE IS</div>
+    <div class="persona-box">
+      <div class="persona-label">Persona — The Navigator</div>
+      <div class="persona-title heading">She runs between meetings, manages logistics, and keeps everything moving.</div>
+      <p class="persona-text">
+        Atlas sits next to her AirPods case and her pen. It's part of her system. She chose nicotine
+        pouches because they're clean, discreet, and don't require stopping. She values products that
+        work as hard as she does — engineered, reliable, no-nonsense. Atlas isn't a break from her day.
+        It's part of her day.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ MOOD BOARD ═══ -->
+  <section class="section-warm">
+    <div class="section-label">mood board</div>
+    <div class="section-title heading">VISUAL WORLD</div>
+    <div class="mood-grid">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/hero.png" alt="Atlas Hero" class="tall">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/mood.png" alt="Atlas Mood">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/concept-a.png" alt="Atlas Concept A">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/concept-b.jpeg" alt="Atlas Concept B">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/lifestyle.jpeg" alt="Atlas Lifestyle">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/mood-alt.png" alt="Atlas Mood Alt">
+      <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/atlas/product-system.png" alt="Atlas Product System">
+    </div>
+  </section>
+
+  <!-- ═══ PACKAGING — A/B/C GRID ═══ -->
+  <section class="section-cream">
+    <div class="section-label">packaging concepts</div>
+    <div class="section-title heading">OPTION EXPLORATION</div>
+    <div class="max-w-lg">
+      <div class="pkg-grid">
+        <!-- Header row -->
+        <div></div>
+        <div class="pkg-header">Option A</div>
+        <div class="pkg-header">Option B</div>
+        <div class="pkg-header">Option C</div>
+
+        <!-- Cans row -->
+        <div class="pkg-row-label">THE PUCK<br><span style="font-family: 'Inter'; font-size: 11px; color: var(--muted); text-transform: none;">15ct graphite tin</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/product.jpeg" alt="Can Option A">
+          <div class="pkg-cell-label">Primary — graphite tin render</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/product-alt.jpeg" alt="Can Option B">
+          <div class="pkg-cell-label">Alt angle — detail view</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/atlas/product-system.png" alt="Can Option C">
+          <div class="pkg-cell-label">Full product system</div>
+        </div>
+
+        <!-- Mega Pack row -->
+        <div class="pkg-row-label">MEGA PACK<br><span style="font-family: 'Inter'; font-size: 11px; color: var(--muted); text-transform: none;">100ct bag</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/packaging.png" alt="Mega Pack A">
+          <div class="pkg-cell-label">Primary packaging concept</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/hero-alt.jpeg" alt="Mega Pack B">
+          <div class="pkg-cell-label">Alt hero treatment</div>
+        </div>
+        <div class="pkg-empty">
+          <span>OPTION C — TBD</span>
+        </div>
+
+        <!-- Accessories row -->
+        <div class="pkg-row-label">ACCESSORIES<br><span style="font-family: 'Inter'; font-size: 11px; color: var(--muted); text-transform: none;">carry + display</span></div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/images/atlas/accessory.png" alt="Accessory Option A">
+          <div class="pkg-cell-label">Brushed aluminum + frosted resin</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/atlas/leather-compass-case.png" alt="Accessory Option B">
+          <div class="pkg-cell-label">Leather compass case</div>
+        </div>
+        <div class="pkg-cell">
+          <img src="/Users/xander/.openclaw/workspace/projects/ntw-brand-explorer/public/concepts/atlas/burgundy-disc-keychain.png" alt="Accessory Option C">
+          <div class="pkg-cell-label">Burgundy disc keychain</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCT DETAILS ═══ -->
+  <section class="section-ink">
+    <div class="section-label">product specs</div>
+    <div class="section-title heading" style="color: var(--cream);">THE SYSTEM</div>
+    <div class="details-grid">
+      <div class="detail-card">
+        <div class="detail-label">Format</div>
+        <div class="detail-value heading">15ct Graphite Tin</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-label">Mega Pack</div>
+        <div class="detail-value heading">100ct Bag</div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-label">Typography</div>
+        <div class="detail-value heading">Space Grotesk</div>
+      </div>
+    </div>
+    <div style="margin-top: 40px;">
+      <div class="acc-list">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div class="section-label">accessories</div>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Brushed aluminum disc keychain</span>
+          <span class="acc-price">$15</span>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Frosted resin compact</span>
+          <span class="acc-price">$32</span>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Leather compass case</span>
+          <span class="acc-price">$65</span>
+        </div>
+        <div class="acc-item">
+          <span class="acc-name">Atlas field kit bundle</span>
+          <span class="acc-price">$95</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RTBs ═══ -->
+  <section class="section-burgundy">
+    <div class="section-label" style="color: var(--gold);">reasons to believe</div>
+    <div class="section-title heading" style="color: var(--cream);">WHY ATLAS</div>
+    <div class="rtb-list">
+      <div class="rtb-item">
+        <div class="rtb-number" style="color: var(--gold);">01</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Engineered Functionality</div>
+        <div class="rtb-desc">EDC-grade design — sits next to her best tools</div>
+      </div>
+      <div class="rtb-item">
+        <div class="rtb-number" style="color: var(--gold);">02</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Distinctive Brand Architecture</div>
+        <div class="rtb-desc">Structural, Bauhaus-influenced visual system</div>
+      </div>
+      <div class="rtb-item">
+        <div class="rtb-number" style="color: var(--gold);">03</div>
+        <div class="rtb-title heading" style="color: var(--cream);">Clear Wayfinding Metaphor</div>
+        <div class="rtb-desc">Navigate, orient, reset — ownable brand narrative</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRAND VOICE ═══ -->
+  <section class="section-cream">
+    <div class="section-label">brand voice</div>
+    <div class="section-title heading">HOW WE SPEAK</div>
+    <div class="voice-grid">
+      <div class="voice-col yes">
+        <h3 class="heading">WE SAY</h3>
+        <span class="voice-tag">reorient</span>
+        <span class="voice-tag">navigate</span>
+        <span class="voice-tag">engineered</span>
+        <span class="voice-tag">structured</span>
+        <span class="voice-tag">precision</span>
+      </div>
+      <div class="voice-col no">
+        <h3 class="heading">WE NEVER SAY</h3>
+        <span class="voice-tag">wanderlust</span>
+        <span class="voice-tag">adventure</span>
+        <span class="voice-tag">explore</span>
+        <span class="voice-tag">journey</span>
+        <span class="voice-tag">discover</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    Project XX — Turning Point Brands — Confidential — April 2026
+  </div>
+
+</body>
+</html>

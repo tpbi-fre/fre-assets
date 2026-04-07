@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRE U.S. Sales Footprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+:root {
+  --fre-red: #E40032;
+  --fre-red-dim: rgba(228,0,50,0.15);
+  --bg: #080b14;
+  --bg-card: rgba(255,255,255,0.025);
+  --border: rgba(255,255,255,0.06);
+  --text: #e8eaf0;
+  --text-dim: rgba(255,255,255,0.5);
+  --text-muted: rgba(255,255,255,0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  padding: 60px 40px 20px;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(228,0,50,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-section h1 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fff 40%, var(--fre-red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+.hero-meta strong { color: var(--text-dim); }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.hero-stat { text-align: left; }
+.hero-stat .val { font-size: 36px; font-weight: 800; color: var(--fre-red); }
+.hero-stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+/* ===== MAP SECTION ===== */
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 20px;
+  position: relative;
+}
+#map-plotly { width: 100%; height: 520px; }
+
+/* Callout overlays */
+.callouts {
+  position: absolute;
+  top: 0; left: 40px; right: 40px; bottom: 20px;
+  pointer-events: none;
+  z-index: 10;
+}
+.callout {
+  position: absolute;
+  max-width: 200px;
+  pointer-events: auto;
+}
+.callout .title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fre-red);
+  margin-bottom: 4px;
+}
+.callout .body {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.callout .big {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 2px;
+}
+
+/* ===== TALE OF TWO WORLDS ===== */
+.tale-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+.tale-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.tale-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--fre-red);
+  margin-bottom: 8px;
+}
+.tale-headline {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.tale-sub {
+  font-size: 15px;
+  color: var(--text-dim);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tale-grid {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+.tale-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+}
+.tale-card.tx { border-left: 3px solid var(--fre-red); }
+.tale-card.ca { border-left: 3px solid rgba(255,255,255,0.15); }
+.tale-card .state-name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.tale-card.tx .state-name { color: var(--fre-red); }
+.tale-card.ca .state-name { color: var(--text-dim); }
+.tale-card .state-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.tale-stat { margin-bottom: 20px; }
+.tale-stat .s-val { font-size: 28px; font-weight: 800; }
+.tale-stat .s-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+.tale-stat .s-sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+.tale-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.vs-text {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+  letter-spacing: 3px;
+}
+
+/* Flavor grid */
+.flavor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+.flavor-chip {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+.flavor-chip.active { border-color: rgba(228,0,50,0.3); color: var(--fre-red); }
+.flavor-chip.banned { border-color: rgba(255,255,255,0.04); color: var(--text-muted); text-decoration: line-through; opacity: 0.4; }
+
+/* ===== IMPACT BOX ===== */
+.impact-section {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 40px;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.impact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+.impact-card .ic-val { font-size: 32px; font-weight: 800; color: var(--fre-red); }
+.impact-card .ic-label { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.impact-card .ic-sub { font-size: 11px; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+.impact-card.highlight {
+  background: rgba(228,0,50,0.04);
+  border-color: rgba(228,0,50,0.2);
+}
+
+.insight-box {
+  background: rgba(228,0,50,0.04);
+  border-left: 3px solid var(--fre-red);
+  padding: 24px 28px;
+  border-radius: 0 12px 12px 0;
+}
+.insight-box p { font-size: 15px; line-height: 1.7; color: var(--text-dim); }
+.insight-box strong { color: var(--fre-red); }
+
+/* ===== GROWTH SECTION ===== */
+.growth-section {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 40px;
+}
+.growth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+#chart-growth { width: 100%; height: 380px; }
+.top-growers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+.grower-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.grower-card .gc-state { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.grower-card .gc-pct { font-size: 22px; font-weight: 700; color: var(--fre-red); }
+.grower-card .gc-sub { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+/* ===== FOOTER ===== */
+.source-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  border-top: 2px solid var(--border);
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-section h1 { font-size: 32px; }
+  .tale-grid { grid-template-columns: 1fr; gap: 20px; }
+  .tale-vs { writing-mode: horizontal-tb; padding: 10px 0; }
+  .vs-text { writing-mode: horizontal-tb; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .top-growers { grid-template-columns: repeat(2, 1fr); }
+  .flavor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero-section">
+  <h1>FRE U.S. Sales Footprint</h1>
+  <div class="hero-meta">
+    <strong>Source:</strong> MSA Scanner · L52W ending 03/29/2026 · FRE volume by state (√ scaled) · AK &amp; HI excluded from map
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="val mono">3.47M</div>
+      <div class="label">Total National Volume</div>
+    </div>
+    <div class="hero-stat">
+      <div class="val mono">33,838</div>
+      <div class="label">Store Count</div>
+    </div>
+    <div class="hero-stat">
+      <div class="val mono">103</div>
+      <div class="label">Avg Vol / Store</div>
+    </div>
+    <div class="hero-stat">
+      <div class="val mono" style="color:#98D801;">+47%</div>
+      <div class="label">Median State YoY Growth</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAP ===== -->
+<div class="map-container">
+  <div id="map-plotly"></div>
+  <div class="callouts">
+    <div class="callout" style="top:65%; left:28%;">
+      <div class="title">Texas Leads Volume</div>
+      <div class="big mono">429K</div>
+      <div class="body">3,084 stores · 139 vol/store<br>Full flavor portfolio · +93% YoY</div>
+    </div>
+    <div class="callout" style="top:12%; right:2%;">
+      <div class="title">Northeast Corridor</div>
+      <div class="big mono">268K</div>
+      <div class="body">PA + NY anchor 9-state corridor<br>Growing +37% YoY avg</div>
+    </div>
+    <div class="callout" style="top:5%; left:0%;">
+      <div class="title">Highest Efficiency</div>
+      <div class="big mono">MT: 531/store</div>
+      <div class="body">167 stores · 5× national avg<br>Deep consumer pull</div>
+    </div>
+    <div class="callout" style="top:35%; right:0%;">
+      <div class="title">Southeast Block</div>
+      <div class="big mono">572K</div>
+      <div class="body">FL + NC + GA + SC + TN<br>Contiguous momentum belt</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TALE OF TWO WORLDS ===== -->
+<div class="tale-section">
+  <div class="tale-header">
+    <div class="tale-eyebrow">Deep Dive · Flavor Policy Impact</div>
+    <div class="tale-headline">A Tale of Two Worlds</div>
+    <div class="tale-sub">Same brand, same distribution muscle — radically different regulatory environments. The flavor ban's impact on FRE volume is measurable and massive.</div>
+  </div>
+
+  <div class="tale-grid">
+    <!-- TEXAS -->
+    <div class="tale-card tx">
+      <div class="state-name">🟢 Texas</div>
+      <div class="state-label">Flavor-Allowed Market</div>
+
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--fre-red);">429,237</div>
+        <div class="s-label">Total Volume (L52W)</div>
+        <div class="s-sub">Largest FRE state by unit volume</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--fre-red);">3,084</div>
+        <div class="s-label">Store Count</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--fre-red);">139</div>
+        <div class="s-label">Volume Per Store</div>
+        <div class="s-sub">35% above national avg (103)</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:#98D801;">+92.8%</div>
+        <div class="s-label">YoY Volume Growth</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--fre-red);">2.78%</div>
+        <div class="s-label">Share of Subcategory</div>
+        <div class="s-sub">Tied for highest share in the nation (w/ MS)</div>
+      </div>
+
+      <p style="font-size:12px; color:var(--text-muted); margin-top:16px; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Available Flavors at Retail</p>
+      <div class="flavor-grid">
+        <div class="flavor-chip active" style="border-color:rgba(0,125,97,0.5); color:#007D61;">Wintergreen</div>
+        <div class="flavor-chip active" style="border-color:rgba(87,204,246,0.5); color:#57CCF6;">Mint</div>
+        <div class="flavor-chip active" style="border-color:rgba(38,176,148,0.5); color:#26B094;">Watermelon</div>
+        <div class="flavor-chip active" style="border-color:rgba(152,216,1,0.5); color:#98D801;">Lush</div>
+        <div class="flavor-chip active" style="border-color:rgba(212,190,151,0.5); color:#D4BE97;">Sweet</div>
+        <div class="flavor-chip active" style="border-color:rgba(167,169,180,0.5); color:#A7A9B4;">Original</div>
+      </div>
+    </div>
+
+    <!-- VS -->
+    <div class="tale-vs">
+      <div class="vs-text">VS</div>
+    </div>
+
+    <!-- CALIFORNIA -->
+    <div class="tale-card ca">
+      <div class="state-name">🔴 California</div>
+      <div class="state-label">Flavor-Banned Market (Prop 31)</div>
+
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--text-dim);">240,510</div>
+        <div class="s-label">Total Volume (L52W)</div>
+        <div class="s-sub">56% of TX volume despite near-equal store count</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--text-dim);">2,836</div>
+        <div class="s-label">Store Count</div>
+        <div class="s-sub">92% of TX's store footprint</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--text-dim);">85</div>
+        <div class="s-label">Volume Per Store</div>
+        <div class="s-sub" style="color:var(--fre-red);">−39% vs Texas efficiency</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:#98D801;">+42.4%</div>
+        <div class="s-label">YoY Volume Growth</div>
+        <div class="s-sub">Still growing — but half TX's rate</div>
+      </div>
+      <div class="tale-stat">
+        <div class="s-val mono" style="color:var(--text-dim);">2.01%</div>
+        <div class="s-label">Share of Subcategory</div>
+        <div class="s-sub">−0.77pp below Texas</div>
+      </div>
+
+      <p style="font-size:12px; color:var(--text-muted); margin-top:16px; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Available Flavors at Retail</p>
+      <div class="flavor-grid">
+        <div class="flavor-chip banned">Wintergreen</div>
+        <div class="flavor-chip banned">Mint</div>
+        <div class="flavor-chip banned">Watermelon</div>
+        <div class="flavor-chip banned">Lush</div>
+        <div class="flavor-chip banned">Sweet</div>
+        <div class="flavor-chip active" style="border-color:rgba(167,169,180,0.5); color:#A7A9B4;">Original ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact Numbers -->
+  <div class="impact-section" style="padding:32px 0 0;">
+    <div class="impact-grid">
+      <div class="impact-card highlight">
+        <div class="ic-val mono">−39%</div>
+        <div class="ic-label">Per-Store Volume Gap</div>
+        <div class="ic-sub">CA: 85 vol/store vs TX: 139 vol/store — same brand, same distribution, different laws</div>
+      </div>
+      <div class="impact-card">
+        <div class="ic-val mono" style="color:#fff;">188,727</div>
+        <div class="ic-label">Lost Volume (Annualized Est.)</div>
+        <div class="ic-sub">If CA stores performed at TX efficiency: 2,836 × 139 = 394K<br>Actual: 240K → <strong style="color:var(--fre-red);">~154K gap</strong></div>
+      </div>
+      <div class="impact-card">
+        <div class="ic-val mono" style="color:#98D801;">92%</div>
+        <div class="ic-label">Store Parity</div>
+        <div class="ic-sub">CA has near-identical shelf presence — the distribution is there, the volume isn't. Flavor is the variable.</div>
+      </div>
+    </div>
+    <div class="insight-box">
+      <p>California is the clearest proof point in the portfolio. <strong>92% of Texas's store footprint, 56% of the volume.</strong> The only structural difference: Prop 31 limits FRE to a single unflavored SKU at retail. Texas runs the full 6-flavor lineup. That's not a distribution problem — it's a <strong>regulatory volume cap</strong>. And yet CA is still #2, still growing at 42% YoY. The demand is there. The law is the ceiling.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOP GROWTH STATES ===== -->
+<div class="growth-section">
+  <div class="growth-header">
+    <div class="tale-eyebrow">Momentum</div>
+    <div class="tale-headline">Fastest-Growing Markets</div>
+    <div class="tale-sub">Top 5 states by YoY growth (min. 25K volume, excluding outlier new-market entries)</div>
+  </div>
+  <div class="top-growers">
+    <div class="grower-card">
+      <div class="gc-state mono">CO</div>
+      <div class="gc-pct mono">+224%</div>
+      <div class="gc-sub">75K vol · 696 stores</div>
+    </div>
+    <div class="grower-card">
+      <div class="gc-state mono">FL</div>
+      <div class="gc-pct mono">+102%</div>
+      <div class="gc-sub">99K vol · 1,420 stores</div>
+    </div>
+    <div class="grower-card">
+      <div class="gc-state mono">MN</div>
+      <div class="gc-pct mono">+98%</div>
+      <div class="gc-sub">75K vol · 623 stores</div>
+    </div>
+    <div class="grower-card">
+      <div class="gc-state mono">TX</div>
+      <div class="gc-pct mono">+93%</div>
+      <div class="gc-sub">429K vol · 3,084 stores</div>
+    </div>
+    <div class="grower-card">
+      <div class="gc-state mono">WI</div>
+      <div class="gc-pct mono">+75%</div>
+      <div class="gc-sub">56K vol · 475 stores</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SOURCE ===== -->
+<div class="source-footer">
+  <strong>Source:</strong> MSA Scanner | L52W ending 03/29/2026 | FRE volume by state | All 50 states + DC<br>
+  <strong>Note:</strong> California flavor ban = Proposition 31 (effective Dec 2022). Restricts sale of flavored tobacco products including flavored nicotine pouches. Only unflavored/tobacco-flavored pouches available at retail.<br>
+  <strong>Volume:</strong> Unit volume in scanner-equivalent units. Vol/Store = Total Volume ÷ Store Count (simple efficiency proxy). Growth = current period vs year-ago period.<br>
+  © Turning Point Brands, Inc. · FRE Nicotine Pouches
+</div>
+
+<script>
+// ===== STATE DATA =====
+const stateData = {
+  "TX":{"vol":429237,"stores":3084,"share":2.784,"yoy":92.8},
+  "CA":{"vol":240510,"stores":2836,"share":2.006,"yoy":42.4},
+  "TN":{"vol":160051,"stores":1761,"share":1.935,"yoy":53.1},
+  "MI":{"vol":148031,"stores":1491,"share":1.699,"yoy":-5.3},
+  "OH":{"vol":125291,"stores":1674,"share":1.028,"yoy":26.0},
+  "GA":{"vol":125028,"stores":1541,"share":1.516,"yoy":16.6},
+  "NC":{"vol":123187,"stores":1560,"share":1.256,"yoy":33.3},
+  "KY":{"vol":119801,"stores":1206,"share":2.144,"yoy":39.4},
+  "OK":{"vol":100923,"stores":829,"share":2.037,"yoy":57.3},
+  "FL":{"vol":99231,"stores":1420,"share":0.626,"yoy":102.3},
+  "IN":{"vol":98344,"stores":1127,"share":1.422,"yoy":33.2},
+  "PA":{"vol":92452,"stores":1416,"share":0.655,"yoy":36.7},
+  "MT":{"vol":88646,"stores":167,"share":2.195,"yoy":46.3},
+  "NY":{"vol":84440,"stores":1092,"share":0.876,"yoy":47.3},
+  "AR":{"vol":83136,"stores":665,"share":2.47,"yoy":70.6},
+  "MS":{"vol":77096,"stores":749,"share":2.784,"yoy":32.5},
+  "CO":{"vol":75088,"stores":696,"share":1.212,"yoy":223.5},
+  "MN":{"vol":74539,"stores":623,"share":1.777,"yoy":97.8},
+  "VA":{"vol":67302,"stores":874,"share":0.841,"yoy":63.6},
+  "SC":{"vol":64611,"stores":837,"share":1.274,"yoy":34.1},
+  "WA":{"vol":59060,"stores":479,"share":0.658,"yoy":42.5},
+  "WI":{"vol":56052,"stores":475,"share":0.686,"yoy":75.3},
+  "IL":{"vol":55079,"stores":804,"share":0.795,"yoy":10.5},
+  "NV":{"vol":49079,"stores":458,"share":1.366,"yoy":822.0},
+  "MO":{"vol":47696,"stores":684,"share":0.664,"yoy":43.1},
+  "OR":{"vol":42863,"stores":309,"share":0.623,"yoy":73.4},
+  "AZ":{"vol":41353,"stores":497,"share":0.676,"yoy":85.7},
+  "ID":{"vol":39208,"stores":267,"share":0.811,"yoy":236.6},
+  "AL":{"vol":36664,"stores":437,"share":0.675,"yoy":null},
+  "KS":{"vol":32467,"stores":401,"share":0.945,"yoy":58.3},
+  "LA":{"vol":32453,"stores":578,"share":0.925,"yoy":null},
+  "UT":{"vol":28013,"stores":208,"share":0.539,"yoy":325.4},
+  "WV":{"vol":26573,"stores":352,"share":1.091,"yoy":76.5},
+  "NM":{"vol":23915,"stores":286,"share":1.29,"yoy":320.8},
+  "MD":{"vol":15508,"stores":212,"share":0.559,"yoy":258.6},
+  "IA":{"vol":15491,"stores":207,"share":0.35,"yoy":-6.1},
+  "ND":{"vol":14364,"stores":43,"share":0.837,"yoy":57.7},
+  "NE":{"vol":14290,"stores":188,"share":0.507,"yoy":21.1},
+  "NJ":{"vol":12770,"stores":256,"share":0.365,"yoy":-3.2},
+  "SD":{"vol":11510,"stores":98,"share":0.806,"yoy":40.7},
+  "WY":{"vol":8384,"stores":60,"share":0.5,"yoy":96.9},
+  "NH":{"vol":8286,"stores":111,"share":0.52,"yoy":null},
+  "MA":{"vol":8068,"stores":272,"share":0.209,"yoy":-25.1},
+  "ME":{"vol":7581,"stores":97,"share":0.49,"yoy":null},
+  "DE":{"vol":6492,"stores":92,"share":0.747,"yoy":61.7},
+  "CT":{"vol":5245,"stores":113,"share":0.19,"yoy":22.0},
+  "VT":{"vol":4795,"stores":89,"share":0.9,"yoy":153.8},
+  "RI":{"vol":4126,"stores":86,"share":0.497,"yoy":null},
+  "AK":{"vol":2285,"stores":24,"share":0.28,"yoy":null},
+  "DC":{"vol":140,"stores":1,"share":0.183,"yoy":null},
+  "HI":{"vol":0,"stores":0,"share":0,"yoy":null}
+};
+
+const states = Object.keys(stateData);
+const volumes = states.map(s => stateData[s].vol);
+const maxVol = Math.max(...volumes);
+
+// Build hover text
+const hoverText = states.map(s => {
+  const d = stateData[s];
+  const vps = d.stores > 0 ? Math.round(d.vol / d.stores) : 0;
+  const yoy = d.yoy !== null ? (d.yoy > 0 ? '+' : '') + d.yoy.toFixed(1) + '%' : 'N/A';
+  return `<b>${s}</b><br>Volume: ${d.vol.toLocaleString()}<br>Stores: ${d.stores.toLocaleString()}<br>Vol/Store: ${vps}<br>Share: ${d.share}%<br>YoY: ${yoy}`;
+});
+
+// Color scale: dark to bright red
+const colorscale = [
+  [0, 'rgb(30,5,5)'],
+  [0.05, 'rgb(60,8,8)'],
+  [0.15, 'rgb(100,10,10)'],
+  [0.3, 'rgb(150,10,20)'],
+  [0.5, 'rgb(200,15,35)'],
+  [0.7, 'rgb(228,0,50)'],
+  [0.85, 'rgb(240,50,70)'],
+  [1, 'rgb(255,100,100)']
+];
+
+Plotly.newPlot('map-plotly', [{
+  type: 'choropleth',
+  locationmode: 'USA-states',
+  locations: states,
+  z: volumes,
+  text: hoverText,
+  hoverinfo: 'text',
+  colorscale: colorscale,
+  showscale: false,
+  marker: {
+    line: { color: 'rgba(255,255,255,0.08)', width: 0.5 }
+  }
+}], {
+  geo: {
+    scope: 'usa',
+    bgcolor: 'rgba(0,0,0,0)',
+    lakecolor: 'rgba(0,0,0,0)',
+    landcolor: 'rgb(15,18,28)',
+    subunitcolor: 'rgba(255,255,255,0.06)',
+    showlakes: false,
+    showframe: false,
+    projection: { type: 'albers usa' }
+  },
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  margin: { l: 0, r: 0, t: 0, b: 0 },
+  font: { family: 'Inter, sans-serif', color: '#e8eaf0' },
+  dragmode: false
+}, {
+  displayModeBar: false,
+  responsive: true,
+  scrollZoom: false
+});
+</script>
+
+</body>
+</html>

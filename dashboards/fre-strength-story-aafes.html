@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRE High-Strength Dominance — AAFES Pitch</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --tpb-blue: #003B6F;
+    --tpb-blue-light: #0062B8;
+    --tpb-blue-bright: #0080E0;
+    --tpb-grey-dark: #2D2D2D;
+    --tpb-grey-mid: #5A5A5A;
+    --tpb-grey-light: #9CA3AF;
+    --tpb-grey-bg: #F3F4F6;
+    --tpb-white: #FFFFFF;
+    --tpb-black: #111111;
+    --fre-red: #E40032;
+    --accent-gold: #D4A843;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--tpb-white);
+    color: var(--tpb-black);
+  }
+
+  /* Each .slide is designed for 13.33" × 7.5" (1280×720 at 96dpi) */
+  .slide {
+    width: 1280px;
+    min-height: 720px;
+    margin: 0 auto 40px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--tpb-white);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    page-break-after: always;
+  }
+
+  /* ─── SLIDE 1: THE SETUP ─── */
+  .slide-hero {
+    background: linear-gradient(135deg, var(--tpb-blue) 0%, #001F3F 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+  }
+
+  .slide-hero .kicker {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 24px;
+  }
+
+  .slide-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+
+  .slide-hero h1 span.highlight {
+    color: var(--fre-red);
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 48px;
+    margin-top: 20px;
+  }
+
+  .stat-block {
+    border-left: 3px solid rgba(255,255,255,0.2);
+    padding-left: 20px;
+  }
+
+  .stat-block .number {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+    color: white;
+  }
+
+  .stat-block .number.red { color: var(--fre-red); }
+
+  .stat-block .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+    max-width: 200px;
+  }
+
+  .source-line {
+    position: absolute;
+    bottom: 16px;
+    left: 64px;
+    right: 64px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    border-top: 2px solid rgba(255,255,255,0.35);
+    padding-top: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .source-line.dark {
+    color: rgba(0,0,0,0.6);
+    border-top: 2px solid rgba(0,0,0,0.2);
+  }
+
+  /* ─── SLIDE LAYOUTS ─── */
+  .slide-content {
+    padding: 48px 64px 40px;
+    display: flex;
+    flex-direction: column;
+    height: 720px;
+  }
+
+  .slide-content .slide-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--tpb-blue);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .slide-content .slide-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tpb-grey-mid);
+    margin-bottom: 24px;
+  }
+
+  .chart-area {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+  }
+
+  .chart-area canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* ─── SLIDE 3: TWO-UP LAYOUT ─── */
+  .two-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .two-up .chart-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .two-up .chart-panel h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--tpb-grey-dark);
+    margin-bottom: 4px;
+  }
+
+  .two-up .chart-panel .panel-sub {
+    font-size: 12px;
+    color: var(--tpb-grey-mid);
+    margin-bottom: 12px;
+  }
+
+  .two-up .chart-panel .chart-wrap {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+  }
+
+  /* ─── SLIDE 5: CALLOUT ─── */
+  .slide-callout {
+    background: linear-gradient(135deg, var(--tpb-blue) 0%, #001F3F 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 100px;
+  }
+
+  .slide-callout .callout-kicker {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+  }
+
+  .slide-callout h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    max-width: 900px;
+    margin-bottom: 40px;
+  }
+
+  .slide-callout h2 span { color: var(--fre-red); }
+
+  .callout-stats {
+    display: flex;
+    gap: 64px;
+  }
+
+  .callout-stat {
+    text-align: center;
+  }
+
+  .callout-stat .num {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .callout-stat .num.red { color: var(--fre-red); }
+
+  .callout-stat .desc {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    max-width: 180px;
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: white; }
+    .slide { box-shadow: none; margin: 0; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SLIDE 1 — THE SETUP: Category is shifting to higher strength
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="slide slide-hero">
+  <div class="kicker">MSA Scanner Data · L52W Ending 2/26/2026 · OST: Pouch</div>
+  <h1>The nicotine pouch category is <span class="highlight">shifting to higher strength.</span></h1>
+  <div class="stat-row">
+    <div class="stat-block">
+      <div class="number">+38.8%</div>
+      <div class="label">Total category growth (L52W YoY)</div>
+    </div>
+    <div class="stat-block">
+      <div class="number">+66.7%</div>
+      <div class="label">7mg+ segment growth — nearly 2× the category rate</div>
+    </div>
+    <div class="stat-block">
+      <div class="number red">+316.9%</div>
+      <div class="label">10mg+ subsegment — the fastest-growing tier in pouches</div>
+    </div>
+  </div>
+  <div class="source-line">SOURCE: MSA / NTC Scanner Data · L52W ending 2/26/2026 · OST: Pouch · All retail channels</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SLIDE 2 — SEGMENT GROWTH COMPARISON (Bar Chart)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="slide-title">Higher Strength = Higher Growth</div>
+    <div class="slide-subtitle">YoY volume growth by strength segment — the higher the mg, the faster the growth</div>
+    <div class="chart-area">
+      <canvas id="chart1"></canvas>
+    </div>
+    <div class="source-line dark">SOURCE: MSA / NTC Scanner Data · L52W ending 2/26/2026 · OST: Pouch</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SLIDE 3 — FRE IS BUILT FOR HIGH STRENGTH (Two-Up)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="slide-title">FRE Is Built for the High-Strength Consumer</div>
+    <div class="slide-subtitle">92% of FRE volume is 7mg+ — perfectly positioned for the fastest-growing segment</div>
+    <div class="two-up">
+      <div class="chart-panel">
+        <h3>FRE Volume Mix by Strength</h3>
+        <div class="panel-sub">7mg+ = 92.6% of total FRE volume</div>
+        <div class="chart-wrap">
+          <canvas id="chart2a"></canvas>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <h3>FRE Growth by Strength Segment</h3>
+        <div class="panel-sub">Outpacing category in every tier</div>
+        <div class="chart-wrap">
+          <canvas id="chart2b"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="source-line dark">SOURCE: MSA / NTC Scanner Data · L52W ending 2/26/2026 · OST: Pouch</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SLIDE 4 — COMPETITIVE LANDSCAPE IN 7mg+ (Horizontal Bar)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="slide-title">FRE Holds 6.2% of the 7mg+ Segment — and Growing</div>
+    <div class="slide-subtitle">Top brands by volume in the 7mg+ nicotine pouch segment (170.4M units L52W)</div>
+    <div class="chart-area">
+      <canvas id="chart3"></canvas>
+    </div>
+    <div class="source-line dark">SOURCE: MSA / NTC Scanner Data · L52W ending 2/26/2026 · OST: Pouch · 7mg+ SKUs only</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SLIDE 5 — THE PUNCHLINE
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="slide slide-callout">
+  <div class="callout-kicker">The Opportunity for AAFES</div>
+  <h2>High-strength pouches are growing <span>2× faster</span> than the category.<br>FRE is the only brand built from the ground up to own this segment.</h2>
+  <div class="callout-stats">
+    <div class="callout-stat">
+      <div class="num">5</div>
+      <div class="desc">Strengths above 6mg — more than any competitor</div>
+    </div>
+    <div class="callout-stat">
+      <div class="num red">+112.6%</div>
+      <div class="desc">FRE YoY growth — 3× the category rate</div>
+    </div>
+    <div class="callout-stat">
+      <div class="num">6.2%</div>
+      <div class="desc">FRE share of the 7mg+ segment nationally</div>
+    </div>
+    <div class="callout-stat">
+      <div class="num red">#5</div>
+      <div class="desc">In the 7mg+ segment — ahead of Lucy, Sesh, and 68 other brands</div>
+    </div>
+  </div>
+  <div class="source-line">SOURCE: MSA / NTC Scanner Data · L52W ending 2/26/2026 · OST: Pouch</div>
+</div>
+
+<script>
+Chart.register(ChartDataLabels);
+
+const COLORS = {
+  blue:      '#003B6F',
+  blueLight: '#0062B8',
+  blueBright:'#0080E0',
+  greyDark:  '#2D2D2D',
+  greyMid:   '#9CA3AF',
+  greyLight: '#E5E7EB',
+  freRed:    '#E40032',
+  white:     '#FFFFFF',
+  gold:      '#D4A843',
+};
+
+const fontFamily = "'Inter', -apple-system, sans-serif";
+
+/* ─── CHART 1: Segment Growth Bars ─── */
+new Chart(document.getElementById('chart1'), {
+  type: 'bar',
+  data: {
+    labels: ['1–6mg\n(Low Strength)', '7–9mg\n(Mid Strength)', '10mg+\n(High Strength)', '7mg+ Combined', 'Total Category'],
+    datasets: [{
+      data: [34.5, 54.0, 316.9, 66.7, 38.8],
+      backgroundColor: [
+        COLORS.greyMid,
+        COLORS.blueLight,
+        COLORS.blue,
+        COLORS.blueBright,
+        COLORS.greyLight
+      ],
+      borderRadius: 6,
+      borderSkipped: false,
+      barPercentage: 0.7,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { top: 30, bottom: 10, left: 10, right: 10 } },
+    scales: {
+      y: {
+        display: true,
+        grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false },
+        ticks: {
+          font: { family: fontFamily, size: 12 },
+          color: COLORS.greyMid,
+          callback: v => v + '%'
+        },
+        beginAtZero: true,
+      },
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { family: fontFamily, size: 12, weight: '600' },
+          color: COLORS.greyDark,
+          maxRotation: 0,
+        }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        font: { family: fontFamily, size: 16, weight: '800' },
+        color: function(ctx) {
+          return ctx.dataIndex === 2 ? COLORS.freRed : COLORS.greyDark;
+        },
+        formatter: v => '+' + v + '%',
+        offset: 4,
+      }
+    }
+  }
+});
+
+/* ─── CHART 2a: FRE Volume Mix Donut ─── */
+new Chart(document.getElementById('chart2a'), {
+  type: 'doughnut',
+  data: {
+    labels: ['10mg+ (72.5%)', '7–9mg (20.1%)', '1–6mg (7.4%)'],
+    datasets: [{
+      data: [8313967, 2300596, 846950],
+      backgroundColor: [COLORS.blue, COLORS.blueLight, COLORS.greyLight],
+      borderWidth: 3,
+      borderColor: COLORS.white,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '55%',
+    layout: { padding: 20 },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: { family: fontFamily, size: 13, weight: '600' },
+          color: COLORS.greyDark,
+          padding: 16,
+          usePointStyle: true,
+          pointStyleWidth: 12,
+        }
+      },
+      datalabels: {
+        color: function(ctx) {
+          return ctx.dataIndex < 2 ? COLORS.white : COLORS.greyDark;
+        },
+        font: { family: fontFamily, size: 14, weight: '700' },
+        formatter: function(value, ctx) {
+          const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+          return Math.round(value / total * 100) + '%';
+        }
+      }
+    }
+  }
+});
+
+/* ─── CHART 2b: FRE vs Category Growth by Segment ─── */
+new Chart(document.getElementById('chart2b'), {
+  type: 'bar',
+  data: {
+    labels: ['1–6mg', '7–9mg', '10mg+', 'Total'],
+    datasets: [
+      {
+        label: 'Category',
+        data: [34.5, 54.0, 316.9, 38.8],
+        backgroundColor: COLORS.greyLight,
+        borderRadius: 4,
+        borderSkipped: false,
+        barPercentage: 0.75,
+        categoryPercentage: 0.7,
+      },
+      {
+        label: 'FRE',
+        data: [1142.5, 57.6, 115.2, 112.6],
+        backgroundColor: COLORS.freRed,
+        borderRadius: 4,
+        borderSkipped: false,
+        barPercentage: 0.75,
+        categoryPercentage: 0.7,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { top: 30, bottom: 0, left: 0, right: 10 } },
+    scales: {
+      y: {
+        display: true,
+        grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false },
+        ticks: {
+          font: { family: fontFamily, size: 11 },
+          color: COLORS.greyMid,
+          callback: v => v + '%'
+        },
+        beginAtZero: true,
+        max: 400,
+      },
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { family: fontFamily, size: 12, weight: '600' },
+          color: COLORS.greyDark,
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: { family: fontFamily, size: 12, weight: '600' },
+          color: COLORS.greyDark,
+          padding: 16,
+          usePointStyle: true,
+          pointStyleWidth: 12,
+        }
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+        font: { family: fontFamily, size: 11, weight: '700' },
+        color: function(ctx) {
+          return ctx.datasetIndex === 1 ? COLORS.freRed : COLORS.greyMid;
+        },
+        formatter: function(v) {
+          if (v > 999) return '+' + Math.round(v/100)*100 + '%';
+          return '+' + v + '%';
+        },
+        offset: 2,
+        display: function(ctx) {
+          // Hide category 1-6mg label to avoid overlap with FRE's huge number
+          if (ctx.datasetIndex === 0 && ctx.dataIndex === 0) return false;
+          return true;
+        }
+      }
+    }
+  }
+});
+
+/* ─── CHART 3: 7mg+ Competitive Landscape ─── */
+new Chart(document.getElementById('chart3'), {
+  type: 'bar',
+  data: {
+    labels: ['VELO', 'on!', 'ZONE', 'Grizzly', 'FRE', 'Lucy', 'Sesh', 'All Others'],
+    datasets: [{
+      data: [41.9, 32.0, 9.3, 7.1, 6.2, 1.3, 0.4, 1.8],
+      backgroundColor: [
+        COLORS.greyMid,
+        COLORS.greyMid,
+        COLORS.greyMid,
+        COLORS.greyMid,
+        COLORS.freRed,
+        COLORS.greyLight,
+        COLORS.greyLight,
+        COLORS.greyLight,
+      ],
+      borderRadius: 6,
+      borderSkipped: false,
+      barPercentage: 0.7,
+    },
+    {
+      // YoY overlay — using a second y-axis
+      type: 'line',
+      label: 'YoY Growth',
+      data: [150.6, -1.0, 133.1, 199.6, 99.4, 340.9, 384.0, null],
+      borderColor: COLORS.blue,
+      backgroundColor: COLORS.blue,
+      pointBackgroundColor: function(ctx) {
+        return ctx.dataIndex === 4 ? COLORS.freRed : COLORS.blue;
+      },
+      pointBorderColor: function(ctx) {
+        return ctx.dataIndex === 4 ? COLORS.freRed : COLORS.blue;
+      },
+      pointRadius: 5,
+      pointHoverRadius: 7,
+      borderWidth: 2,
+      borderDash: [4, 4],
+      tension: 0.3,
+      yAxisID: 'y2',
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { top: 30, bottom: 10, left: 0, right: 10 } },
+    scales: {
+      y: {
+        position: 'left',
+        grid: { color: 'rgba(0,0,0,0.05)', drawBorder: false },
+        ticks: {
+          font: { family: fontFamily, size: 12 },
+          color: COLORS.greyMid,
+          callback: v => v + '%'
+        },
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Segment Share',
+          font: { family: fontFamily, size: 11, weight: '600' },
+          color: COLORS.greyMid,
+        }
+      },
+      y2: {
+        position: 'right',
+        grid: { display: false },
+        ticks: {
+          font: { family: fontFamily, size: 11 },
+          color: COLORS.blue,
+          callback: v => (v > 0 ? '+' : '') + v + '%'
+        },
+        beginAtZero: false,
+        title: {
+          display: true,
+          text: 'YoY Growth',
+          font: { family: fontFamily, size: 11, weight: '600' },
+          color: COLORS.blue,
+        }
+      },
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { family: fontFamily, size: 13, weight: '700' },
+          color: function(ctx) {
+            return ctx.index === 4 ? COLORS.freRed : COLORS.greyDark;
+          },
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+          font: { family: fontFamily, size: 12, weight: '600' },
+          color: COLORS.greyDark,
+          padding: 16,
+          usePointStyle: true,
+          pointStyleWidth: 12,
+          filter: function(item) {
+            return item.datasetIndex === 1;
+          }
+        }
+      },
+      datalabels: {
+        display: function(ctx) {
+          return ctx.datasetIndex === 0;
+        },
+        anchor: 'end',
+        align: 'end',
+        font: function(ctx) {
+          return {
+            family: fontFamily,
+            size: ctx.dataIndex === 4 ? 16 : 13,
+            weight: ctx.dataIndex === 4 ? '800' : '600'
+          };
+        },
+        color: function(ctx) {
+          return ctx.dataIndex === 4 ? COLORS.freRed : COLORS.greyDark;
+        },
+        formatter: v => v + '%',
+        offset: 4,
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

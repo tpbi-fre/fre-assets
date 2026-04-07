@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRE × AAFES — Impact Infographic</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap');
+
+  :root {
+    --green: #00c853;
+    --green-dim: #00a844;
+    --green-glow: rgba(0, 200, 83, 0.25);
+    --black: #0a0a0a;
+    --white: #f5f5f5;
+    --gray: #999;
+    --amber: #ffab00;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PANEL SYSTEM ── */
+  .panel {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .panel-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: opacity 0.5s;
+  }
+  /* Placeholder gradient when image not yet dropped in */
+  .panel-bg.empty {
+    background: linear-gradient(135deg, #0d1a0f 0%, #080808 40%, #0a100c 100%);
+  }
+  .panel-bg.empty::after {
+    content: attr(data-prompt-hint);
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0,200,83,0.2);
+    max-width: 400px;
+    line-height: 1.5;
+  }
+  .scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .scrim-bottom { background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.2) 100%); }
+  .scrim-center { background: radial-gradient(ellipse at center, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.8) 70%); }
+  .scrim-heavy { background: rgba(10,10,10,0.7); }
+  .scrim-split { background: linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 50%, rgba(10,10,10,0.85) 100%); }
+  .overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 32px;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    padding: 5px 14px;
+    border: 1px solid rgba(0,200,83,0.3);
+    border-radius: 100px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+    background: rgba(0,200,83,0.06);
+  }
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+  }
+
+  /* ── HERO PANEL ── */
+  .hero .overlay {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  .hero-title {
+    font-size: clamp(60px, 12vw, 140px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin-bottom: 16px;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .hero-title span { color: var(--green); }
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 24px);
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 48px;
+    letter-spacing: 0.5px;
+  }
+  .hero-amount {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(64px, 11vw, 130px);
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    text-shadow: 0 0 80px var(--green-glow);
+    margin-bottom: 8px;
+  }
+  .hero-amount-label {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+  }
+  .hero-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-pill {
+    padding: 10px 20px;
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .hero-pill .mono { color: var(--green); margin-right: 6px; }
+  .scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: bob 2s ease-in-out infinite;
+  }
+  .scroll-hint .chevron {
+    width: 14px; height: 14px;
+    border-right: 2px solid var(--green);
+    border-bottom: 2px solid var(--green);
+    transform: rotate(45deg);
+  }
+  @keyframes bob { 0%,100%{opacity:0.3;transform:translateX(-50%) translateY(0)} 50%{opacity:1;transform:translateX(-50%) translateY(5px)} }
+
+  /* ── YEAR PANELS ── */
+  .year-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+  .year-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(80px, 14vw, 160px);
+    font-weight: 800;
+    color: var(--green);
+    line-height: 0.9;
+    text-shadow: 0 0 100px var(--green-glow);
+    margin-bottom: 4px;
+  }
+  .year-label {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+  .year-metrics {
+    display: flex;
+    gap: 1px;
+    margin-top: 8px;
+  }
+  .year-metric {
+    padding: 20px 24px;
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(12px);
+    border-left: 2px solid var(--green);
+    flex: 1;
+  }
+  .year-metric-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .year-metric-desc {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* ── CUMULATIVE BAR (Year 3 panel) ── */
+  .cum-bar-wrap {
+    margin-top: 32px;
+    background: rgba(10,10,10,0.5);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    border: 1px solid rgba(0,200,83,0.15);
+  }
+  .cum-bar-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+  .cum-bar-track {
+    height: 48px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    position: relative;
+  }
+  .cum-bar-seg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--black);
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cum-bar-seg.y1 { background: rgba(0,200,83,0.5); width: 20%; }
+  .cum-bar-seg.y2 { background: rgba(0,200,83,0.7); width: 36%; }
+  .cum-bar-seg.y3 { background: var(--green); width: 44%; }
+  .cum-bar-total {
+    position: absolute;
+    right: -8px;
+    top: -28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .cum-bar-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--gray);
+  }
+  .cum-bar-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .cum-bar-legend .l1::before { background: rgba(0,200,83,0.5); }
+  .cum-bar-legend .l2::before { background: rgba(0,200,83,0.7); }
+  .cum-bar-legend .l3::before { background: var(--green); }
+
+  /* ── ROI PANEL ── */
+  .roi-overlay {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .roi-equation {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .roi-box {
+    padding: 32px 40px;
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .roi-box.invest { border-bottom: 3px solid var(--green); }
+  .roi-box.return { border-bottom: 3px solid var(--amber); }
+  .roi-box-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .roi-box.invest .roi-box-num { color: var(--green); }
+  .roi-box.return .roi-box-num { color: var(--amber); }
+  .roi-box-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .roi-arrow {
+    font-size: 32px;
+    color: var(--green);
+  }
+  .roi-multiplier {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(56px, 10vw, 100px);
+    font-weight: 800;
+    color: var(--green);
+    text-shadow: 0 0 80px var(--green-glow);
+    margin-bottom: 8px;
+  }
+  .roi-sub {
+    font-size: 14px;
+    color: var(--gray);
+    max-width: 400px;
+    line-height: 1.6;
+  }
+
+  /* ── POTENCY PANEL ── */
+  .potency-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  .potency-comparison {
+    display: flex;
+    gap: 2px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+  .potency-card {
+    padding: 36px 40px;
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    min-width: 180px;
+  }
+  .potency-card.fre { border-top: 3px solid var(--green); }
+  .potency-card.zyn { border-top: 3px solid #555; }
+  .potency-brand {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+  .potency-card.fre .potency-brand { color: var(--green); }
+  .potency-card.zyn .potency-brand { color: #666; }
+  .potency-stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .potency-card.fre .potency-stat { color: var(--green); }
+  .potency-card.zyn .potency-stat { color: #555; }
+  .potency-unit {
+    font-size: 11px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .potency-result {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(60px, 10vw, 100px);
+    font-weight: 800;
+    color: var(--green);
+    text-shadow: 0 0 80px var(--green-glow);
+  }
+  .potency-result-label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .potency-result-sub {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-pills { flex-direction: column; align-items: center; }
+    .year-metrics { flex-direction: column; }
+    .potency-comparison { flex-direction: column; }
+    .roi-equation { flex-direction: column; }
+    .roi-arrow { transform: rotate(90deg); }
+  }
+
+  /* ── SOURCE FOOTER ── */
+  .source-bar {
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .source-bar p {
+    font-size: 10px;
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .source-bar .logo {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+  }
+  .source-bar .logo span { color: var(--green); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     1. HERO — FRE can on tactical surface
+     Image: hero.png (or whatever Higgsfield returns)
+     ═══════════════════════════════════════════════ -->
+<div class="panel hero">
+  <div class="panel-bg empty" id="bg-hero" data-prompt-hint="Hero: FRE can on tactical surface, green rim light, smoke"></div>
+  <div class="scrim scrim-bottom"></div>
+  <div class="overlay">
+    <div class="tag">Confidential · AAFES Buyer Pitch</div>
+    <div class="hero-title"><span>FRE</span>×AAFES</div>
+    <div class="hero-sub">The Untapped Opportunity</div>
+    <div class="hero-amount">$10.5M</div>
+    <div class="hero-amount-label">3-Year Wholesale Revenue</div>
+    <div class="hero-pills">
+      <div class="hero-pill"><span class="mono">681</span> Locations</div>
+      <div class="hero-pill"><span class="mono">173×</span> ROI</div>
+      <div class="hero-pill"><span class="mono">$0</span> AAFES Risk</div>
+      <div class="hero-pill"><span class="mono">8×</span> Military Tobacco Use</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="chevron"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     2. YEAR 1 — $2.1M — Military exchange at night
+     Image: year1.png
+     ═══════════════════════════════════════════════ -->
+<div class="panel fade-up">
+  <div class="panel-bg empty" id="bg-year1" data-prompt-hint="Year 1: Military exchange at night, green neon, soldier silhouette"></div>
+  <div class="scrim scrim-bottom"></div>
+  <div class="overlay year-overlay">
+    <div class="tag">Year 1</div>
+    <div class="year-num">$2.1M</div>
+    <div class="year-label">Launch & Penetrate — 681 Locations Live by Month 12</div>
+    <div class="year-metrics">
+      <div class="year-metric">
+        <div class="year-metric-val">150</div>
+        <div class="year-metric-desc">Tier A+B stores launch<br>Months 1–2</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">$1.47M</div>
+        <div class="year-metric-desc">Single Can revenue<br>8–30 units/store/week</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">$490K</div>
+        <div class="year-metric-desc">Mega Pack revenue<br>1–3 units/store/week</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">$61K</div>
+        <div class="year-metric-desc">Total free-fill investment<br>681 KDF displays</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     3. YEAR 2 — $3.8M — Product display wall
+     Image: year2.png
+     ═══════════════════════════════════════════════ -->
+<div class="panel fade-up">
+  <div class="panel-bg empty" id="bg-year2" data-prompt-hint="Year 2: FRE display wall, green LED strips, moody commercial"></div>
+  <div class="scrim scrim-bottom"></div>
+  <div class="overlay year-overlay">
+    <div class="tag">Year 2</div>
+    <div class="year-num">$3.8M</div>
+    <div class="year-label">Scale & Repeat — Full Distribution, Mega Pack at Scale</div>
+    <div class="year-metrics">
+      <div class="year-metric">
+        <div class="year-metric-val">$3.06M</div>
+        <div class="year-metric-desc">Single Can revenue<br>Trial → repeat acceleration</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">$588K</div>
+        <div class="year-metric-desc">Mega Pack revenue<br>20% YoY growth</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">8–10%</div>
+        <div class="year-metric-desc">Quarterly velocity growth<br>Tapering toward steady state</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">+86%</div>
+        <div class="year-metric-desc">YoY revenue growth<br>$2.1M → $3.8M</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     4. YEAR 3 — $4.6M — Glowing global network map
+     Image: year3.png
+     ═══════════════════════════════════════════════ -->
+<div class="panel fade-up">
+  <div class="panel-bg empty" id="bg-year3" data-prompt-hint="Year 3: World map of green glowing dots, military installations, network lines"></div>
+  <div class="scrim scrim-bottom"></div>
+  <div class="overlay year-overlay">
+    <div class="tag">Year 3</div>
+    <div class="year-num">$4.6M</div>
+    <div class="year-label">Steady State — 3.2% Share, Full SKU Optimization</div>
+    <div class="year-metrics">
+      <div class="year-metric">
+        <div class="year-metric-val">$3.80M</div>
+        <div class="year-metric-desc">Single Can revenue<br>Mature velocity plateau</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">$676K</div>
+        <div class="year-metric-desc">Mega Pack revenue<br>15% YoY growth</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">3.2%</div>
+        <div class="year-metric-desc">Implied market share<br>Conservative (matches Rogue today)</div>
+      </div>
+      <div class="year-metric">
+        <div class="year-metric-val">4–5%</div>
+        <div class="year-metric-desc">Quarterly growth rate<br>Sustainable steady state</div>
+      </div>
+    </div>
+
+    <!-- Cumulative 3-year bar -->
+    <div class="cum-bar-wrap">
+      <div class="cum-bar-label">Cumulative 3-Year Revenue</div>
+      <div class="cum-bar-track">
+        <div class="cum-bar-seg y1">$2.1M</div>
+        <div class="cum-bar-seg y2">$3.8M</div>
+        <div class="cum-bar-seg y3">$4.6M</div>
+        <div class="cum-bar-total">→ $10.5M</div>
+      </div>
+      <div class="cum-bar-legend">
+        <span class="l1">Year 1</span>
+        <span class="l2">Year 2</span>
+        <span class="l3">Year 3</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     5. ROI CLOSE — Small display vs massive return
+     Image: roi.png
+     ═══════════════════════════════════════════════ -->
+<div class="panel fade-up">
+  <div class="panel-bg empty" id="bg-roi" data-prompt-hint="ROI: Small tactical display vs towering gold/cash, extreme scale contrast"></div>
+  <div class="scrim scrim-center"></div>
+  <div class="overlay roi-overlay">
+    <div class="tag">The Ask</div>
+    <div class="roi-equation">
+      <div class="roi-box invest">
+        <div class="roi-box-num">$61K</div>
+        <div class="roi-box-label">TPB Investment</div>
+      </div>
+      <div class="roi-arrow">→</div>
+      <div class="roi-box return">
+        <div class="roi-box-num">$10.5M</div>
+        <div class="roi-box-label">3-Year Return</div>
+      </div>
+    </div>
+    <div class="roi-multiplier">173×</div>
+    <div style="font-size:18px;font-weight:700;margin-bottom:12px;">Return on Investment</div>
+    <div class="roi-sub">
+      681 pre-packed KDF displays at $89.23 COGS each. TPB absorbs 100% of free-fill costs. Zero financial risk to AAFES — pure incremental category revenue.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     6. POTENCY (optional) — Lab vials
+     Image: potency.png
+     ═══════════════════════════════════════════════ -->
+<div class="panel fade-up">
+  <div class="panel-bg empty" id="bg-potency" data-prompt-hint="Potency: Two lab vials, green full vs gray low, pharmaceutical aesthetic"></div>
+  <div class="scrim scrim-center"></div>
+  <div class="overlay potency-overlay">
+    <div class="tag">The Potency Advantage</div>
+    <div class="potency-comparison">
+      <div class="potency-card fre">
+        <div class="potency-brand">FRE</div>
+        <div class="potency-stat">300</div>
+        <div class="potency-unit">mg per can</div>
+        <div style="margin-top:12px;font-size:11px;color:var(--gray)">15mg × 20 pouches</div>
+      </div>
+      <div class="potency-card zyn">
+        <div class="potency-brand">ZYN</div>
+        <div class="potency-stat">90</div>
+        <div class="potency-unit">mg per can</div>
+        <div style="margin-top:12px;font-size:11px;color:var(--gray)">6mg × 15 pouches</div>
+      </div>
+    </div>
+    <div class="potency-result">3.3×</div>
+    <div class="potency-result-label">More Nicotine Per Can</div>
+    <div class="potency-result-sub">Military consumers want strength. FRE delivers.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
+<div class="source-bar">
+  <div class="logo"><span>FRE</span> × AAFES</div>
+  <p>
+    Sources: NielsenIQ AAFES Scan Data (L12W) · EURPAC Military Pricing List (eff. 3/17/2026) · AAFES Tobacco Sales Data (R52W Nov 2025) · EURPAC Distribution Intelligence (Jan 2026). All projections represent wholesale revenue to EURPAC/AAFES. Velocity benchmarked against modern oral industry norms.
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     IMAGE LOADER — Drop images in same folder,
+     update filenames below
+     ═══════════════════════════════════════════════ -->
+<script>
+// Map panel IDs to image filenames
+// Replace these with your actual Higgsfield output filenames
+const images = {
+  'bg-hero':    'hero.png',
+  'bg-year1':   'year1.png',
+  'bg-year2':   'year2.png',
+  'bg-year3':   'year3.png',
+  'bg-roi':     'roi.png',
+  'bg-potency': 'potency.png',
+};
+
+// Auto-load: set background-image and remove placeholder class
+Object.entries(images).forEach(([id, file]) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const img = new Image();
+  img.onload = () => {
+    el.style.backgroundImage = `url('${file}')`;
+    el.classList.remove('empty');
+  };
+  img.src = file;
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

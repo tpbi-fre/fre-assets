@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRE Logo Lockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 80px;
+    padding: 60px;
+  }
+
+  .variant-label {
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: -60px;
+  }
+
+  /* ── Variant 1: Dark bg, red shadow/glow ── */
+  .lockup-v1 {
+    background: #1a1a1a;
+    padding: 80px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+
+  .lockup-v1 .fre-mark {
+    position: relative;
+    display: inline-block;
+  }
+
+  .lockup-v1 .fre-shadow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    letter-spacing: 12px;
+    color: #cc0000;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: 1;
+    filter: blur(2px);
+    user-select: none;
+  }
+
+  .lockup-v1 .fre-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    letter-spacing: 12px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+
+  .lockup-v1 .fre-reg {
+    font-size: 28px;
+    vertical-align: super;
+    font-weight: 700;
+    color: #ffffff;
+    opacity: 0.6;
+  }
+
+  .lockup-v1 .sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
+  /* ── Variant 2: Dark bg, bold red plate behind ── */
+  .lockup-v2 {
+    background: #111111;
+    padding: 80px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  .lockup-v2 .fre-mark {
+    position: relative;
+    display: inline-block;
+  }
+
+  .lockup-v2 .fre-plate {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 180px;
+    letter-spacing: 14px;
+    color: #cc0000;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .lockup-v2 .fre-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 180px;
+    letter-spacing: 14px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 40px rgba(204, 0, 0, 0.3);
+  }
+
+  .lockup-v2 .fre-reg {
+    font-size: 30px;
+    vertical-align: super;
+    font-weight: 700;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
+  .lockup-v2 .sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    color: #cc0000;
+  }
+
+  /* ── Variant 3: White bg, red drop shadow ── */
+  .lockup-v3 {
+    background: #ffffff;
+    padding: 80px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border-radius: 4px;
+  }
+
+  .lockup-v3 .fre-mark {
+    position: relative;
+    display: inline-block;
+  }
+
+  .lockup-v3 .fre-shadow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    letter-spacing: 12px;
+    color: #cc0000;
+    opacity: 0.2;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .lockup-v3 .fre-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    letter-spacing: 12px;
+    color: #cc0000;
+    position: relative;
+    z-index: 2;
+  }
+
+  .lockup-v3 .fre-reg {
+    font-size: 28px;
+    vertical-align: super;
+    font-weight: 700;
+    color: #cc0000;
+    opacity: 0.5;
+  }
+
+  .lockup-v3 .sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #333333;
+    opacity: 0.4;
+  }
+
+  /* ── Variant 4: Red bg, white text, dark shadow ── */
+  .lockup-v4 {
+    background: #cc0000;
+    padding: 80px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .lockup-v4 .fre-mark {
+    position: relative;
+    display: inline-block;
+  }
+
+  .lockup-v4 .fre-shadow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    letter-spacing: 12px;
+    color: #000000;
+    opacity: 0.25;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .lockup-v4 .fre-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    letter-spacing: 12px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+  }
+
+  .lockup-v4 .fre-reg {
+    font-size: 28px;
+    vertical-align: super;
+    font-weight: 700;
+    color: #ffffff;
+    opacity: 0.6;
+  }
+
+  .lockup-v4 .sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.7;
+  }
+
+  /* ── Variant 5: Cinematic — deep red glow bloom ── */
+  .lockup-v5 {
+    background: #0a0a0a;
+    padding: 100px 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lockup-v5::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 500px;
+    height: 250px;
+    background: radial-gradient(ellipse, rgba(204,0,0,0.25) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .lockup-v5 .fre-mark {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+
+  .lockup-v5 .fre-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 180px;
+    letter-spacing: 16px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    text-shadow:
+      0 0 20px rgba(204,0,0,0.6),
+      0 0 60px rgba(204,0,0,0.3),
+      0 0 100px rgba(204,0,0,0.15),
+      4px 4px 0 rgba(204,0,0,0.8);
+  }
+
+  .lockup-v5 .fre-reg {
+    font-size: 30px;
+    vertical-align: super;
+    font-weight: 700;
+    color: #ffffff;
+    opacity: 0.4;
+  }
+
+  .lockup-v5 .sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 14px;
+    text-transform: uppercase;
+    color: #cc0000;
+    opacity: 0.6;
+    z-index: 1;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+  <span class="variant-label">V1 — Clean Shadow</span>
+  <div class="lockup-v1">
+    <div class="fre-mark">
+      <span class="fre-shadow">FRE</span>
+      <span class="fre-text">FRE<span class="fre-reg">®</span></span>
+    </div>
+    <span class="sub">Nicotine Pouches</span>
+  </div>
+
+  <span class="variant-label">V2 — Bold Plate</span>
+  <div class="lockup-v2">
+    <div class="fre-mark">
+      <span class="fre-plate">FRE</span>
+      <span class="fre-text">FRE<span class="fre-reg">®</span></span>
+    </div>
+    <span class="sub">Nicotine Pouches</span>
+  </div>
+
+  <span class="variant-label">V3 — White / Light</span>
+  <div class="lockup-v3">
+    <div class="fre-mark">
+      <span class="fre-shadow">FRE</span>
+      <span class="fre-text">FRE<span class="fre-reg">®</span></span>
+    </div>
+    <span class="sub">Nicotine Pouches</span>
+  </div>
+
+  <span class="variant-label">V4 — Red Field</span>
+  <div class="lockup-v4">
+    <div class="fre-mark">
+      <span class="fre-shadow">FRE</span>
+      <span class="fre-text">FRE<span class="fre-reg">®</span></span>
+    </div>
+    <span class="sub">Nicotine Pouches</span>
+  </div>
+
+  <span class="variant-label">V5 — Cinematic Glow</span>
+  <div class="lockup-v5">
+    <div class="fre-mark">
+      <span class="fre-text">FRE<span class="fre-reg">®</span></span>
+    </div>
+    <span class="sub">Nicotine Pouches</span>
+  </div>
+
+</body>
+</html>
